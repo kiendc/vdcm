@@ -1,0 +1,13 @@
+<?php
+$type='';
+$name='';
+$desc=;
+$up=-100;
+$ut=50;
+$dw=600;
+$cw=array();
+$enc='cp1252';
+$diff='';
+$file='arialn.z';
+$originalsize=173936;
+?>

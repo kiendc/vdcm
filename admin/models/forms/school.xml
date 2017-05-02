@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+		<field name="name" type="text"
+			description="VJEECDCM_SCHOOL_ADD_FORM_FS_INFORMATION_NAME"
+			label="VJEECDCM_SCHOOL_ADD_FORM_FS_INFORMATION_NAME"
+			required="true"
+			size="60"
+		/>
+		
+		<field name="description" type="textarea"
+			description="VJEECDCM_SCHOOL_ADD_FORM_FS_DESCRIPTION"
+			label="VJEECDCM_SCHOOL_ADD_FORM_FS_DESCRIPTION"
+			rows="4"
+			cols="61"
+			required="false"
+		/>
+		
+		<field name="website" type="url"
+			description="VJEECDCM_SCHOOL_ADD_FORM_WEBSITE"
+			label="VJEECDCM_SCHOOL_ADD_FORM_WEBSITE"
+			required="false"
+			size="40"
+		/>
+		
+		<field name="address" type="textarea"
+			description="VJEECDCM_SCHOOL_ADD_FORM_ADDRESS"
+			label="VJEECDCM_SCHOOL_ADD_FORM_ADDRESS"
+			required="false"
+			rows="4"
+			cols="61"
+		/>
+		
+		<field name="zipcode" type="text"
+			description="VJEECDCM_SCHOOL_ADD_FORM_ZIPCODE"
+			label="VJEECDCM_SCHOOL_ADD_FORM_ZIPCODE"
+			required="false"
+			size="40"
+		/>
+		
+		<field name="represent_user_id"
+			type="radio"
+			default="604"
+			class="btn-group btn-group-yesno"
+			label="VJEECDCM_SCHOOL_ADD_FORM_BELONG_JALSA"
+			description="In Jalsa">
+			<option value="604">JYES</option>
+			<option value="0">JNO</option>
+		</field>
+
+		<field name="username" type="text"
+			description="COM_USERS_USER_FIELD_USERNAME_DESC"
+			label="Tên đăng nhập"
+			required="true"
+			size="30"
+		/>
+		
+		<field name="password" type="password"
+			autocomplete="off"
+			class="validate-password"
+			description="COM_USERS_USER_FIELD_PASSWORD_DESC"
+			filter="raw"
+			validate="password"
+			label="JGLOBAL_PASSWORD"
+			size="30"
+		/>
+		
+		<field name="password2" type="password"
+			autocomplete="off"
+			class="validate-password"
+			description="Nhập lại mật khẩu"
+			filter="raw"
+			label="Nhập lại mật khẩu"
+			size="30"
+			validate="equals"
+			field="password"
+		/>
+		
+		<field name="contact_name" type="text"
+			description="VJEECDCM_SCHOOL_ADD_FORM_FS_CONTACT_NAME"
+			label="VJEECDCM_SCHOOL_ADD_FORM_FS_CONTACT_NAME"
+			required="false"
+			size="30"
+		/>
+		
+		<field name="email" type="email"
+			description="COM_USERS_USER_FIELD_EMAIL_DESC"
+			label="JGLOBAL_EMAIL"
+			required="true"
+			size="30"
+			validate="email"
+		/>
+				
+		<field name="fax" type="text"
+			required="false"
+			description="Fax"
+			label="Fax"
+			size="20"
+		/>
+		
+		<field name="phone" type="text"
+			required="false"
+			description="Số điện thoại"
+			label="Số điện thoại"
+			size="20"
+		/>
+		<field
+			name="id"
+			type="text"
+			class="readonly"
+			label="ID"
+			description ="ID"
+			default="0"
+			readonly="true"
+		/>
+		<field name="school_user_id" type="hidden" />
+	</fieldset>
+</form>
