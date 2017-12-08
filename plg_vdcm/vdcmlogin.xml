@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="user">
+        <name>plg_user_vdcmlogin</name>
+        <author>Kien Dang</author>
+        <creationDate>December 18th, 2017</creationDate>
+        <copyright>VJEEC</copyright>
+        <license>GNU General Public License</license>
+        <authorEmail>kiendc@gmail.com</authorEmail>
+        <authorUrl>http://vjeec.org</authorUrl>
+        <version>1.0</version>
+        <description>Redirect user to a suitable view depending on user group.</description>
+        <files>
+                <filename plugin="vdcmlogin">vdcmlogin.php</filename>
+                <filename>index.html</filename>
+        </files>
+</extension>
