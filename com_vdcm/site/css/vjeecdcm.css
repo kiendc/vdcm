@@ -1,0 +1,386 @@
+.diploma-detail
+{
+        margin:10px 0 15px 0;
+        padding:15px;
+}
+.diploma-detail dt,
+{
+        float:left;
+        width:12em;
+        padding:3px 0;
+}
+
+.diploma-detail dd
+{
+        padding:3px 0;
+
+}
+
+
+
+.diploma-detail legend
+{
+    font-weight:bold
+}
+
+
+span.optional
+{
+    font-size:0.9em
+}
+
+.vjeecdcm-frame
+{
+    background: #fffffF;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #888;
+    margin: 0 0 1.5em 0;
+    height: 100%;
+    min-height:500px;
+    box-shadow: 0 0 16px rgba(0,0,0,0.25);
+    display:block;
+    position:relative;
+    float:center;
+
+}
+
+.vjeecdcm-frame-header
+{
+    height: 30px;
+    background: #425C81;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #FCFAFB;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-top: 5px;
+    min-height: 30px;
+    
+}
+.vjeecdcm-frame-toolbar
+{
+        height: 30px;
+        padding: 5px;
+        border-bottom: 1px;
+}
+.vjeecdcm-frame-content
+{
+    padding: 10px;
+    padding-top: 20px;
+    min-height: 470px;
+}
+
+
+
+form.diploma-register label
+{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 150px;
+    text-align: right;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-right: 10px;
+}
+
+form.diploma-register input {
+    margin-top:5px;
+    margin-bottom:5px;
+    display: inline-block;
+    float: left;
+}
+
+form.diploma-register fieldset
+{
+    margin-top: 30px;
+}
+
+/*
+.ui-widget-header
+{
+    background-color: #425C81 !important;
+    background-image: none !important;
+    border-color: #425C81 !important;
+}
+*/
+
+.ui-toolbar
+{
+    padding: 5px;    
+}
+#system-message dd.message
+{
+    background: none !important;
+    border: none !important;
+}
+
+
+.dataTables_filter {
+  height: 28px;
+  padding-top: 5px;
+}
+
+.dataTables_filter label input {
+  display : inline-block;
+}
+
+.dataTables_wrapper .ui-toolbar .table-toolbar {
+  float: left;
+  overflow: hidden;
+}
+
+#vjeecdcm-taskbar-box 
+{ 
+  margin-bottom: 10px;
+  padding: 10px 10px 0 10px;
+  min-height: 48px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.ui-menu
+{
+        
+
+}
+
+.dropdown-select-menu
+{
+        position:absolute;
+        display:none;
+        z-index: 9999;        
+}
+
+#req-context-menu
+{
+        width: 150px;
+        
+}
+
+#req-dir-select-menu
+{
+        width: 150px; 
+}
+
+#proc-step-select-menu
+{
+        width: 150px;
+         
+}
+
+
+.vjeecdcm-panel-header
+{
+        padding:5px;
+        
+}
+
+.vjeecdcm-panel-content
+{
+        padding:5px;   
+}
+
+#login-frame
+{
+        width: 400px;
+        height: 300px !important;
+        min-height: 300px !important;
+        margin-left: 30%;
+}
+
+#login-frame button
+{
+        padding: 0 !important;
+}
+
+#registration-frame
+{
+        width: 640px;
+        margin-left: 20%;
+}
+
+#registration-frame dl
+{
+        width: 100%;
+}
+
+#registration-frame dt
+{
+        width: 35%;
+        float:left;
+        padding: 5px 0px 5px 0px;
+}
+
+#registration-frame dd
+{
+        width: 62%;
+        float:left;
+        padding: 5px 0px 5px 0px;
+}
+
+.form-frame dl
+{
+        width: 100%;
+}
+
+.form-frame dt
+{
+        width: 35%;
+        float:left;
+        padding: 5px 0px 5px 0px;
+}
+
+.form-frame dd
+{
+        width: 62%;
+        float:left;
+        padding: 5px 0px 5px 0px;
+}
+
+#add-school-frame input[type=text]
+{
+        width: 350px;
+}
+
+#add-school-frame textarea
+{
+        width: 350px;
+        height: 100px;
+}
+
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* support: IE7 */
+    *height: 1.7em;
+    *top: 0.1em;
+}
+
+.custom-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+}
+
+label.error {
+        color: red;
+        font-weight: normal;
+        font-style: italic;
+}
+.dataTables_wrapper{
+    border-radius: 3px;
+    border-width: 0px 1px 1px 1px;
+    border-style: solid;
+    border-color: #888;
+    box-shadow: 0 0 16px rgba(0,0,0,0.25);
+}
+
+
+.dataTables_wrapper tr {
+        line-height:1.5em;
+}
+
+.dataTables_wrapper td {
+        font-size: 13px;
+        font-weight: normal;
+}
+
+.dataTables_wrapper td a{
+        font-weight: normal;
+}
+
+.paging_full_numbers .ui-button {
+	padding: 2px 6px;
+	margin: 0;
+	cursor: pointer;
+	color: #333 !important;
+}
+
+#req-view-toolbar
+{
+        height: 45px;
+        border-bottom: solid 1px #aaa;
+        padding-bottom: 10px;
+}
+
+#req-view-layout {
+    position: relative;
+    padding-top: 5px;
+}
+
+#dir-pane {
+    width: 185px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2px;
+    padding-right: 5px;
+    float:left;
+}
+
+
+#dir-table td a {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+#table-pane {
+    margin-left: 192px;
+    overflow:hidden;
+}
+
+.detail-dlg #certGenForm-content{
+     width: 100%;
+     float:left;
+     overflow:  hidden;
+}
+
+.detail-dlg .info-input, .detail-dlg .preview{
+    box-sizing:border-box;
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;    
+}
+
+.detail-dlg .info-input{
+     width: 43%;
+     float: left;
+     padding: 10px;
+     font-size: 13.5px;
+}
+
+.detail-dlg .info-input table{
+     border: none;
+}
+
+.detail-dlg .preview{
+     width: 55%;
+     padding: 5px;
+     float: right;
+}
+
+.detail-dlg label{
+        padding-right: 5px;
+        font-weight: bold;
+}
+
+.editable-unsaved {
+        font-weight: lighter;
+        font-style: italic;
+}
+
+#school-adding-dlg fieldset{
+        border: 1px groove threedface;
+        margin-top: 10px;
+}
