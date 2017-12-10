@@ -1,0 +1,20 @@
+{
+  "name": "vdcm-monitor",
+  "version": "0.0.0",
+  "description": "vdcm-monitor",
+  "main": "vdcm-server.js",
+  "author": {
+    "name": "ckdang"
+  },
+  "dependencies": {
+    "socket.io": "~2.0.4",
+    "express": "~4.10.7"
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node vdcm-server.js"
+  }
+}

@@ -24,8 +24,8 @@ app.get('/employee', function (req, res) {
     res.sendFile(__dirname + '/vdcm-employee.html');
 
 });
-http.listen(2111, function(){
-    console.log('listening on *: 2111');
+http.listen(8000, function(){
+    console.log('listening on *: 8000');
 });
 
 

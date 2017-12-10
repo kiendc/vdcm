@@ -2,35 +2,43 @@
 console.log('Cookie : ' + JSON.stringify(x));
 var token = ""
 var socket = undefined;
+var config = {
+	"domain": 'vjeec-monitor-vdcm-monitor.193b.starter-ca-central-1.openshiftapps.com/',
+	"clientport": '8000',
+	"protocol":   'ws://',
+	
+	"heartbeattmo": 1000, // milliseconds
+	
+	"wsclientopts": {
+	reconnection: true,
+	reconnectionDelay: 2000,
+	reconnectionAttempts: 3,
+	secure: false
+	}
+};
 
 function connectToMonitor()
 {
-    socket = io.connect('/', { query: 'token=' + token });
-    socket.on('error', function (err) {
-        console.log('Authentication failed ' + JSON.stringify(err));
+	
+	var connString = config.protocol + config.domain + ':' + config.clientport;
+	
+	console.log("Websocket connection string:", connString, config.wsclientopts);
+	socket = io.connect(connString, config.wsclientopts);
+
+	socket.on('error', function (err) {
+						console.log('Authentication failed ' + JSON.stringify(err));
     });
-    socket.io.on('connect_error', function (err) {
+    socket.on('connect_error', function (err) {
         // handle server error here
         console.log('Error connecting to server');
-        socketOff();
+							console.log(err);
     });
-    socket.on('connect', onSocketConnected);
+    socket.on('connect', function (data){
+							console.log('Connect to monitor');
+							
+							});
     socket.on('connection', function (data) {
         console.log('on connection');
     })
 }
-//////////////////////////////////////////////////
-
-$(document).ready(function () {
-    console.log('DOM is ready');
-    //var data = new google.visualization.DataTable();
-    
-    $(document).on('click', ".btn-submit-test", onBtnSubmitTest); // Button is added dynamically
-    $(document).on('click', ".btn-detail-test", onBtnDetailTest); // Button is added dynamically
-
-    
-   
-    $('#create-test-modal').on('show.bs.modal', onShowCreateModal);
-    $('#btn-add-test').on('click', onBtnAddTest);
-});
 
