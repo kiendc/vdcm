@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-
+var port = 2111;
 
 ///////////////////////////////////////////////
 app.use(express.static(__dirname));
@@ -24,8 +24,9 @@ app.get('/employee', function (req, res) {
     res.sendFile(__dirname + '/vdcm-employee.html');
 
 });
-http.listen(8000, function(){
-    console.log('listening on *: 8000');
+http.listen(port, function(){
+    console.log('listening on *: ' + port);
+    console.log("Socket.io version: " + require("socket.io/package").version);
 });
 
 
