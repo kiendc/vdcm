@@ -20,10 +20,14 @@ var config = {
 function connectToMonitor()
 {
 	
-	var connString = config.protocol + config.domain + ':' + config.clientport;
-	
+	//var connString = config.protocol + config.domain + ':' + config.clientport;
+    var connString = config.domain + ':' + config.clientport;
 	console.log("Websocket connection string:", connString, config.wsclientopts);
+<<<<<<< HEAD
 	socket = io.connect(connString);
+=======
+    socket = io.connect(connString, { transports: ['websocket']});
+>>>>>>> 576b9126e27485146b0f0ca409ae27231a2596d5
 
 	socket.on('error', function (err) {
 						console.log('Authentication failed ' + JSON.stringify(err));
