@@ -3,7 +3,7 @@ console.log('Cookie : ' + JSON.stringify(x));
 var token = ""
 var socket = undefined;
 var config = {
-	"domain": 'vjeec-monitor-vdcm-monitor.193b.starter-ca-central-1.openshiftapps.com/',
+	"domain": 'vjeec-monitor-vdcm-monitor.193b.starter-ca-central-1.openshiftapps.com',
 	"clientport": '8000',
 	"protocol":   'ws://',
 	
@@ -23,7 +23,7 @@ function connectToMonitor()
 	var connString = config.protocol + config.domain + ':' + config.clientport;
 	
 	console.log("Websocket connection string:", connString, config.wsclientopts);
-	socket = io.connect(connString, config.wsclientopts);
+	socket = io.connect(connString);
 
 	socket.on('error', function (err) {
 						console.log('Authentication failed ' + JSON.stringify(err));
