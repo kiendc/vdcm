@@ -20,6 +20,11 @@ $doc->addStyleSheet('components/com_vjeecdcm/ext/data-tables/media/css/jquery.da
 $doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
 ?>
 
+<script type="text/javascript">
+ 	// set site_url variable which to be used in create_request.js file 
+	var site_url = "<?php echo JURI::root(); ?>";
+</script>
+
 <div id="req-view-toolbar">
   <button id='req-view-create-btn'><?php echo JText::_('VJEECDCM_RV_BT_CREATE_REQUESTS');?></button>
 </div>
