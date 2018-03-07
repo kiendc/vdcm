@@ -20,6 +20,11 @@ $doc->addStyleSheet('components/com_vjeecdcm/ext/data-tables/media/css/jquery.da
 $doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
 ?>
 
+<script type="text/javascript">
+ 	// set site_url variable which to be used in create_request.js file 
+	var site_url = "<?php echo JURI::root(); ?>";
+</script>
+
 <div id="req-view-toolbar">
   <button id='req-view-create-btn'><?php echo JText::_('VJEECDCM_RV_BT_CREATE_REQUESTS');?></button>
 </div>
@@ -36,6 +41,7 @@ $doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_SCHOOL' ) . '</th>';
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_PROCESS_TITLE' ) . '</th>';
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_LAST_UPDATE_DATE' ) . '</th>';
+    echo '<th>' . JText::_( 'Ngày dự kiến gửi' ) . '</th>';
    
     echo '</tr>';
     echo '</thead>'; 
@@ -52,6 +58,7 @@ if ($this->requests)
     echo '<td>' . $rq->route . '</td>';
     echo '<td>' . JText::_($rq->name) . '</td>';
     echo '<td>' .  $rq->begin_date . '</td>';
+    echo '<td>' .  $rq->expected_send_date . '</td>';
     echo '</tr>';
   }
 } 

@@ -1,4 +1,4 @@
-<?php
+<?php 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 JText::script('VJEECDCM_RV_BT_ARCHIVE_REQUESTS');
@@ -9,29 +9,23 @@ JText::script('VJEECDCM_RV_BT_UPDATE_REQUESTS');
 JText::script('VJEECDCM_RV_BT_SHOW_DIRECTORY');
 
 $doc =  JFactory::getDocument();
-//$doc->addScript('components/com_vjeecdcm/ext/data-tables/media/js/jquery.js');
-//$doc->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js');
-//$doc->addScript('components/com_vjeecdcm/ext/data-tables/media/js/jquery.dataTables.js');
-//$doc->addScript('//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js');
-$doc->addScript('//code.jquery.com/jquery-1.10.2.min.js');
-$doc->addScript('//cdn.datatables.net/1.10.0/js/jquery.dataTables.js');
-#$doc->addScript('components/com_vjeecdcm/ext/data-tables/extras/TableTools/media/js/TableTools.js');
-$doc->addScript('//cdnjs.cloudflare.com/ajax/libs/datatables-tabletools/2.1.5/js/TableTools.js');
-//$doc->addScript('components/com_vjeecdcm/ext/jquery-ui/js/jquery-ui-1.10.3.custom.js');
-$doc->addScript('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js');
+
+$doc->addScript('components/com_vjeecdcm/js/jquery-1.10.2.min.js');
+$doc->addScript('components/com_vjeecdcm/js/jquery.dataTables.js');
+$doc->addScript('components/com_vjeecdcm/js/TableTools.js');
+$doc->addScript('components/com_vjeecdcm/js/jquery-ui.min.js');
 $doc->addScript('components/com_vjeecdcm/ext/jquery.treetable.js');
 $doc->addScript('components/com_vjeecdcm/ext/jquery.form.js');
-$doc->addScript('//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.js');
-$doc->addScript('//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/js/jqueryui-editable.min.js');
-
+$doc->addScript('components/com_vjeecdcm/js/select2.min.js');
+$doc->addScript('components/com_vjeecdcm/js/jqueryui-editable.min.js');
 $doc->addScript('components/com_vjeecdcm/js/view-emplrequests.js');
 
+//adding css file
 $doc->addStyleSheet('components/com_vjeecdcm/ext/data-tables/media/css/jquery.dataTables.css');
-//$doc->addStyleSheet('components/com_vjeecdcm/ext/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css');
 $doc->addStyleSheet('components/com_vjeecdcm/css/jquery.treetable.css');
 $doc->addStyleSheet('components/com_vjeecdcm/css/jquery.treetable.theme.default.css');
 $doc->addStyleSheet('components/com_vjeecdcm/ext/select2-3.5.0/select2.css');
-$doc->addStyleSheet("//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jqueryui-editable/css/jqueryui-editable.css");
+$doc->addStyleSheet("components/com_vjeecdcm/css/jqueryui-editable.css");
 $doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
 
 ?>

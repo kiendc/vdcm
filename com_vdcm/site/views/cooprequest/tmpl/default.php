@@ -73,6 +73,7 @@ $doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_PROCESS_TITLE' ) . '</th>';
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_LAST_UPDATE_DATE' ) . '</th>';
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_CREATED_DATE' ) . '</th>';
+    echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_EXPECTED_SEND_DATE' ) . '</th>';
     echo '</tr>';
     echo '</thead>'; 
     ?>
