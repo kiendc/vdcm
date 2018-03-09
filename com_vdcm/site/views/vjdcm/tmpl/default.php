@@ -1,7 +1,7 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-//JHtml::_('behavior.framework');
-//jimport( 'joomla.user.helper' );
+JHtml::_('bootstrap.framework');
+
 $doc =  JFactory::getDocument();
 $doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
 
