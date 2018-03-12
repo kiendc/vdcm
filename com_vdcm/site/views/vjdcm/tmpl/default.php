@@ -1,19 +1,23 @@
 <?php
 defined('_JEXEC') or die('Restricted access');
-JHtml::_('bootstrap.framework');
 
+JHtml::_('jquery.framework', false);
 $doc =  JFactory::getDocument();
 $doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
-$doc->addStyleSheet('https://cdn.datatables.net/v/bs/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/datatables.min.css');
-$doc->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/af-2.2.2/b-1.5.1/b-colvis-1.5.1/datatables.min.js');
+
+$doc->addStyleSheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+$doc->addStyleSheet('https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css');
+
+$doc->addScript('https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js');
+$doc->addScript('https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js');
 ?>
 
 <script type="text/javascript">
  	// set site_url variable which to be used in create_request.js file 
 	var site_url = "<?php echo JURI::root(); ?>";
-  $(document).ready(function() {
-    $('#example').DataTable();
-} );
+	$(document).ready(function(){
+		$('#example').DataTable();
+	});
 </script>
 
 <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -27,16 +31,6 @@ $doc->addScript('https://cdn.datatables.net/v/bs/dt-1.10.16/af-2.2.2/b-1.5.1/b-c
                 <th>Salary</th>
             </tr>
         </thead>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
         <tbody>
   </tbody>
 </table>
