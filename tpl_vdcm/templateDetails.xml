@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 1.6//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/1.6/template-install.dtd">
+<extension version="2.5" type="template" client="site" method="upgrade">
+	<name>vjeec-ccm</name>
+	<creationDate>June 11, 2013</creationDate>
+	<author>Cristina Solana | Matt Thomas</author>
+	<authorEmail>support@construct-framework.com</authorEmail>
+	<authorUrl>http://construct-framework.com</authorUrl>
+	<copyright>Copyright (C) 2009 - 2013 Matt Thomas. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<version>2.5.20</version>
+	<description>TPL_CONSTRUCT5_DESCRIPTION</description>
+	<files>
+		<folder>css</folder>
+		<folder>js</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+	</files>
+
+	<positions>
+		<position>header</position>
+		<position>login</position>
+		<position>content</position>
+		<position>nav</position>
+	</positions>
+</extension>
+
