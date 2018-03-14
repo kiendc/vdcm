@@ -3,7 +3,6 @@ defined('_JEXEC') or die('Restricted access');
 
 JHtml::_('jquery.framework', false);
 $doc =  JFactory::getDocument();
-$doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
 
 $doc->addStyleSheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
 $doc->addStyleSheet('https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css');

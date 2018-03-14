@@ -12,21 +12,34 @@
 </head>
 
 <body>
-
+<!--
 <div id="header">
+
     <div id="branding">
             <p id="home">Creditial Certificate Manager</p>
     </div>
-    <div id="login">
-        <jdoc:include type="modules" name="login" />               
-    </div>
-</div>
-<div id="taskbar">
-    <jdoc:include type="modules" name="nav" />    
-</div>
-<div id="main-panel">
-    <div id="content">
+-->
+	<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header navbar-brand">
+			Certificate Management
+		</div>
+ 		<div class="navbar-form navbar-right">
+        		<jdoc:include type="modules" name="login" />               
+    		</div>
+	</div>
+</nav>
+
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">Home</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+</ul>    
+<div class="container-fluid">
+<div class="row">
+	<div class="col-sm-12">
         <jdoc:include type="component" />
+	</div>
     </div>
 </div>
 </body>
