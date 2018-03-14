@@ -1,0 +1,79 @@
+<?php defined('_JEXEC') or die;
+/**
+ * @package        Template Framework for Joomla!+
+ * @author        Cristina Solana http://nightshiftcreative.com
+ * @author        Matt Thomas http://construct-framework.com | http://betweenbrain.com
+ * @copyright    Copyright (C) 2009 - 2013 Matt Thomas. All rights reserved.
+ * @license        GNU/GPL v2 or later http://www.gnu.org/licenses/gpl-2.0.html
+ */
+$doc =  JFactory::getDocument();
+$doc->addScript('components/com_vjeecdcm/ext/data-tables/media/js/jquery.js');
+$doc->addScript('components/com_vjeecdcm/ext/jquery-ui/js/jquery-ui-1.10.3.custom.js');
+$doc->addScript('components/com_vjeecdcm/js/view-login.js');
+$doc->addStyleSheet('components/com_vjeecdcm/css/vjeecdcm.css');
+$doc->addStyleSheet('components/com_vjeecdcm/ext/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css');
+JHtml::_('behavior.keepalive');
+?>
+<div class="vjeecdcm-frame" id="login-frame">
+<div class="vjeecdcm-frame-header">
+<?php echo JText::_('VJEECDCM_LOGIN_FRAME_TITLE'); ?>
+</div>
+<div class="vjeecdcm-frame-content">
+<section class="login<?php echo $this->pageclass_sfx?>">
+    <?php if ($this->params->get('show_page_heading')) : ?>
+    <h2>
+        <?php echo htmlspecialchars($this->params->get('page_heading')); ?>
+    </h2>
+    <?php endif; ?>
+
+    <?php if (($this->params->get('logindescription_show') == 1 && str_replace(' ', '', $this->params->get('login_description')) != '') || $this->params->get('login_image') != '') : ?>
+    <p class="login-description">
+    <?php endif; ?>
+
+    <?php if ($this->params->get('logindescription_show') == 1) : ?>
+    <?php echo $this->params->get('login_description'); ?>
+    <?php endif; ?>
+
+    <?php if (($this->params->get('login_image') != '')) : ?>
+    <img src="<?php echo htmlspecialchars($this->params->get('login_image')); ?>" class="login-image" alt="<?php echo JTEXT::_('COM_USER_LOGIN_IMAGE_ALT')?>" />
+    <?php endif; ?>
+
+    <?php if (($this->params->get('logindescription_show') == 1 && str_replace(' ', '', $this->params->get('login_description')) != '') || $this->params->get('login_image') != '') : ?>
+    </p>
+    <?php endif; ?>
+
+    <form action="<?php echo JRoute::_('index.php?option=com_users&task=user.login'); ?>" method="post">
+        <fieldset>
+            <?php foreach ($this->form->getFieldset('credentials') as $field): ?>
+            <?php if (!$field->hidden): ?>
+                <p class="login-fields"><?php echo $field->label; ?>
+                    <?php echo $field->input; ?></p>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <button type="submit" class="button btn"><?php echo JText::_('JLOGIN'); ?></button>
+            <input type="hidden" name="return" value="<?php echo base64_encode($this->params->get('login_redirect_url', $this->form->getValue('return'))); ?>" />
+            <?php echo JHtml::_('form.token'); ?>
+        </fieldset>
+    </form>
+</section>
+<section>
+    <ul>
+        <li>
+            <a href="<?php echo JRoute::_('index.php?option=com_users&view=reset'); ?>">
+                <?php echo JText::_('COM_USERS_LOGIN_RESET'); ?></a>
+        </li>
+        <li>
+            <a href="<?php echo JRoute::_('index.php?option=com_users&view=remind'); ?>">
+                <?php echo JText::_('COM_USERS_LOGIN_REMIND'); ?></a>
+        </li>
+        <?php
+        $usersConfig = JComponentHelper::getParams('com_users');
+        if ($usersConfig->get('allowUserRegistration')) : ?>
+            <li>
+                <a href="<?php echo JRoute::_('index.php?option=com_users&view=registration'); ?>">
+                    <?php echo JText::_('COM_USERS_LOGIN_REGISTER'); ?></a>
+            </li>
+            <?php endif; ?>
+    </ul>
+</section>
+</div>

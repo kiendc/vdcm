@@ -20,7 +20,7 @@ $doc->addScript('components/com_vjeecdcm/ext/jquery-ui/js/jquery-1.9.1.js');
 	$id = $user->get('id');
 	jimport( 'joomla.access.access' );
 	$groups = JUserHelper::getUserGroups($id);
-	//dump($groups, 'groups of user');
+	dump($groups, 'groups of user');
 	$article =& JTable::getInstance("content");
 	if(strcmp($groups[9],'9')==0)
 	{

@@ -8,12 +8,8 @@ $doc =  JFactory::getDocument();
 /*
  Add scripts of an external library for data grid: DataTables
 */
-//$doc->addScript('components/com_vjeecdcm/ext/data-tables/media/js/jquery.js');
-$doc->addScript('//code.jquery.com/jquery-1.10.2.min.js');
-//$doc->addScript('//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js');
-$doc->addScript('//cdn.datatables.net/1.10.0/js/jquery.dataTables.js');
-$doc->addScript('//cdnjs.cloudflare.com/ajax/libs/datatables-tabletools/2.1.5/js/TableTools.js');
-
+$doc->addScript('components/com_vjeecdcm/ext/data-tables/media/js/jquery.js');
+$doc->addScript('//ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js');
 $doc->addScript('//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js');
 $doc->addScript('components/com_vjeecdcm/ext/data-tables/extras/TableTools/media/js/TableTools.js');
 $doc->addScript('components/com_vjeecdcm/js/empldiploma-default.js');
