@@ -1,0 +1,1 @@
+var site_url = "<?php echo JURI::root(); ?>";

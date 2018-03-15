@@ -9,15 +9,11 @@ $doc->addStyleSheet('https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap
 
 $doc->addScript('https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js');
 $doc->addScript('https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js');
+
+$doc->addScript('components/com_vjeecdcm/js/vjdcm.js');
+$doc->addScript('components/com_vjeecdcm/js/client.js');
 ?>
 
-<script type="text/javascript">
- 	// set site_url variable which to be used in create_request.js file 
-	var site_url = "<?php echo JURI::root(); ?>";
-	$(document).ready(function(){
-		$('#example').DataTable();
-	});
-</script>
 <ul class="nav nav-tabs">
   <li role="presentation" class="active"><a href="#">Dashboard</a></li>
   <li role="presentation"><a href="#">Requests</a></li>
