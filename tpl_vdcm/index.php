@@ -19,27 +19,22 @@
             <p id="home">Creditial Certificate Manager</p>
     </div>
 -->
-	<nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header navbar-brand">
 			Certificate Management
 		</div>
- 		<div class="navbar-form navbar-right">
+		<ul class="nav navbar-nav navbar-right">
+			<li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><?php echo JFactory::getUser()->name; ?></a></li>
+ 		<li class="navbar-form">
         		<jdoc:include type="modules" name="login" />               
-    		</div>
+    		</li>
+		</ul>
 	</div>
 </nav>
-
-<ul class="nav nav-tabs">
-  <li role="presentation" class="active"><a href="#">Home</a></li>
-  <li role="presentation"><a href="#">Profile</a></li>
-  <li role="presentation"><a href="#">Messages</a></li>
-</ul>    
 <div class="container-fluid">
 <div class="row">
-	<div class="col-sm-12">
-        <jdoc:include type="component" />
-	</div>
+	<div class="col-sm-12"><jdoc:include type="component" /></div>
     </div>
 </div>
 </body>

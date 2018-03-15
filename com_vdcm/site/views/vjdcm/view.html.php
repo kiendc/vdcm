@@ -11,12 +11,18 @@ class VjeecDcmViewVjDcm extends JViewLegacy
   protected $welcomeMsg;
   protected $sysNotices;
   protected $privMsgs;
+  protected $user;
   function display($tpl = null) 
   { 
     // Display the viewé
     $user =JFactory::getUser();
     $id = $user->get('id');
     $lang = $user->getParam('language');
+    $groups= $user->get('groups'); 
+    if (in_array(9, $groups))
+    {
+	$this->setLayout('client');
+    }
     $article =& JTable::getInstance("content");
     
     if ($lang == 'ja-JP')
