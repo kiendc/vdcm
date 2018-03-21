@@ -23,6 +23,10 @@ class VjeecDcmViewVjDcm extends JViewLegacy
     {
 	$this->setLayout('client');
     }
+    else if (in_array(11, $groups))
+    {
+	$this->setLayout('employee');
+    }
     $article =& JTable::getInstance("content");
     
     if ($lang == 'ja-JP')

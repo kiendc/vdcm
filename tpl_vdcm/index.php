@@ -4,13 +4,18 @@
    xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" >
    
 <head>
+
 <jdoc:include type="head" />
 <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/system.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/system/css/general.css" type="text/css" />
 <link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/template.css" type="text/css" />
+<link rel="stylesheet" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' type="text/css"/>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" type="text/css"/>
 
 </head>
-
+<script>
+	var frmTk = '<?php echo JSession::getFormToken();?>'; 
+</script>
 <body>
 <!--
 <div id="header">
