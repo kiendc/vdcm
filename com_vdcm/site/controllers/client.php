@@ -175,8 +175,10 @@ class VjeecDcmControllerClient extends JControllerForm
     public function getRequests()
     {
 	JSession::checkToken() or die ('Invalid token');
+	$reqModel = $this->getModel('request');
+	$reqs = $reqModel->getCreatedRequests();
    	$table = array( array (1, 2, 3, 4, 5, 6), array (7, 8, 9, 10, 12, 12));
-	$data = array("draw" => 1, "recordsTotal" => 2, "recordsFiltered" => 2, "data" => $table, "postdata" => $_POST);
+	$data = array("draw" => 1, "recordsTotal" => 2, "requests" => $reqs, "data" => $table, "postdata" => $_POST);
         echo json_encode($data);
         jexit();
     }  

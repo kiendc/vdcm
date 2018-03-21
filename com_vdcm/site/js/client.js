@@ -33,7 +33,9 @@ $('#example').DataTable({
 		success: function (data, textStatus, jqXHR) 
 		{
 			console.log(data);
-			$('#example').DataTable();
+			$('#example').DataTable({
+				data: data.data
+			});
 		}
 	});
 });
