@@ -31,7 +31,6 @@ $doc->addScript('components/com_vjeecdcm/js/client.js');
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_SCHOOL' ) . '</th>';
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_PROCESS_TITLE' ) . '</th>';
     echo '<th>' . JText::_( 'VJEECDCM_RV_CT_REQUEST_LAST_UPDATE_DATE' ) . '</th>';
-    echo '<th>' . JText::_( 'Ngày dự kiến gửi' ) . '</th>';
 ?>
             </tr>
         </thead>

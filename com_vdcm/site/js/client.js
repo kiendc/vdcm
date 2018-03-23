@@ -32,9 +32,18 @@ $('#example').DataTable({
 		},
 		success: function (data, textStatus, jqXHR) 
 		{
-			console.log(data);
+			console.log(data.requests);
 			$('#example').DataTable({
-				data: data.data
+				data: data.requests,
+				columns : [
+					{data: 'code'},
+					{data: 'created_date'},
+					{data: 'holder_name'},
+					{data: 'degree_name'},
+					{data: 'route'},
+					{data: 'name'},
+					{data: 'begin_date'}
+				]
 			});
 		}
 	});
