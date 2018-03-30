@@ -37,3 +37,7 @@ echo $this->loadTemplate('tab-content-1');
 Tab content 3
 </div>
 </div>
+
+<?php
+echo $this->loadTemplate('req-create-dlg');
+?>
