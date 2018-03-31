@@ -40,10 +40,10 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="reset" class="button" style="float:right;">
+        <button type="reset" class="btn btn-default" style="float:right;">
           <?php echo JText::_('VJEECDCM_REQUEST_ADD_FORM_BUTTON_RESET'); ?>
         </button>
-        <button type="submit" class="button" name="action" id='create-req-btn' value="confirm" style="float:right;">
+        <button type="submit" class="btn btn-default" id='create-req-btn' value="confirm" style="float:right;">
           <?php echo JText::_('VJEECDCM_REQUEST_ADD_FORM_BUTTON_CREATE'); ?>
         </button>
       </div>
