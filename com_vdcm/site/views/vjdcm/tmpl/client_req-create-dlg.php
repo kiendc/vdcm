@@ -8,15 +8,20 @@
         <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        <div>
-          <div class="detail-sec" id="req-detail-sec-1">
-            <h3>Thong tin </h3>
-            <div>
-              <label><?php echo JText::_( 'VJEECDCM_REQUEST_ADD_FORM_FS_INFORMATION_SCHOOL' ); ?></label>
-              <span class='req-editable' id='req-detail-target-school'></span>
-              <label><?php echo JText::_( 'VJEECDCM_REQUEST_ADD_FORM_FS_INFORMATION_TYPE' ); ?></label>
-              <span class="req-editable" id="req-detail-type"></span>
-            </div>
+				<form>
+					<div>
+						<div class="detail-sec" id="req-detail-sec-1">
+							<h3>Thong tin </h3>
+							<div>
+								<div class="form-group">
+									<label><?php echo JText::_( 'VJEECDCM_REQUEST_ADD_FORM_FS_INFORMATION_SCHOOL' ); ?></label>
+									<a href="#" id="req-detail-target-school" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-title="Enter your firstname"></a>
+								</div>
+								<div class="form-group">
+									<label><?php echo JText::_( 'VJEECDCM_REQUEST_ADD_FORM_FS_INFORMATION_TYPE' ); ?></label>
+									<span class="req-editable" id="req-detail-type"></span>
+									</div>
+							</div>
           </div>
           <div class="detail-sec" id="req-detail-sec-2">
             <h3>Ho so </h3>
@@ -38,6 +43,8 @@
           </div>
           <input type="hidden" id="upload-path" value=""/>
         </div>
+				<?php echo JHtml::_('form.token'); ?>
+				</form>
       </div>
       <div class="modal-footer">
         <button type="reset" class="btn btn-default" style="float:right;">
@@ -47,7 +54,7 @@
           <?php echo JText::_('VJEECDCM_REQUEST_ADD_FORM_BUTTON_CREATE'); ?>
         </button>
       </div>
-      <?php echo JHtml::_('form.token'); ?>
+			
     </div>
   </div>
 </div>
