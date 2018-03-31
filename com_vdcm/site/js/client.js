@@ -10,6 +10,11 @@ function onTabActivated(e)
     //console.log(e.relatedTarget);
 }
 
+function onReqCreationDlgOpen()
+{
+	
+}
+
 function showRequestTable(data)
 {
     $('#example').DataTable({
