@@ -8,7 +8,7 @@
         <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-				<form>
+				<form class="form-inline">
 					<div>
 						<div class="detail-sec" id="req-detail-sec-1">
 							<h3>Thong tin </h3>

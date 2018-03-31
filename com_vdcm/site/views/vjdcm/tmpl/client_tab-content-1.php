@@ -1,7 +1,7 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <div class="btn-group" role="group">
-      <button type="button" class=" " data-toggle="modal" data-target="#req-adding-dlg" >
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#req-adding-dlg" >
         <?php echo JText::_('VJEECDCM_RV_BT_CREATE_REQUESTS');?>
       </button>
     </div>
