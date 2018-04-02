@@ -12,6 +12,7 @@ function onTabActivated(e)
 
 function onReqCreationDlgOpen()
 {
+	console.log("Dialog open");
 	
 }
 
@@ -65,7 +66,9 @@ function getRequest()
 }
 
 $(document).ready(function(){
+									
    $('a[data-toggle="tab"]').on('show.bs.tab', onTabActivated);
+									$('#req-adding-dlg').on('show.bs.modal', onReqCreationDlgOpen);
    getRequest();	
 	
 });
