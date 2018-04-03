@@ -15,6 +15,12 @@ function onReqCreationDlgOpen()
 	$('#req-detail-target-school').editable();
 	$('#req-detail-type').editable();
 	$('#exampleInputEmail1').editable();
+	$('#req-detail-diploma').editable();
+	$('#req-detail-holder').editable();
+	$('#req-detail-holder-info-1').editable();
+	$('#req-detail-holder-info-4').editable();
+	$('#req-detail-holder-info-2').editable();
+	$('#req-detail-holder-info-3').editable();
 	console.log("Dialog open");
 	
 }
