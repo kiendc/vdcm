@@ -12,6 +12,8 @@ function onTabActivated(e)
 
 function onReqCreationDlgOpen()
 {
+	$('#req-detail-target-school').editable();
+	$('#req-detail-type').editable();
 	console.log("Dialog open");
 	
 }
