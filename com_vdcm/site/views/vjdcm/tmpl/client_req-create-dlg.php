@@ -12,6 +12,11 @@
 					<div>
 						<div class="detail-sec" id="req-detail-sec-1">
 							<h3>Thong tin </h3>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <a type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+              </div>
 							<div>
 								<div class="form-group">
 									<label><?php echo JText::_( 'VJEECDCM_REQUEST_ADD_FORM_FS_INFORMATION_SCHOOL' ); ?></label>

@@ -14,6 +14,7 @@ function onReqCreationDlgOpen()
 {
 	$('#req-detail-target-school').editable();
 	$('#req-detail-type').editable();
+	$('#exampleInputEmail1').editable();
 	console.log("Dialog open");
 	
 }
@@ -45,32 +46,34 @@ function showRequestTable(data)
 
 function getRequest()
 {
-     var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=client.getRequests";
-     data = {};
-     data[frmTk] = 1;
-     console.log(url);
+	var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=client.getRequests";
+	data = {};
+	data[frmTk] = 1;
+	console.log(url);
 
-     $.ajax({
-         url: url,
-         data: data,
-         dataType: "json",
-         type: 'POST',
-         error: function (jqXHR, textStatus, errorThrown)
-         {
-             alert(errorThrown);
-         },
-         success: function (data, textStatus, jqXHR)
-         {
-             console.log(data.requests);
-	     showRequestTable(data.requests);
-         }
-     });   
+	$.ajax({
+				 url: url,
+				 data: data,
+				 dataType: "json",
+				 type: 'POST',
+				 error: function (jqXHR, textStatus, errorThrown)
+				 {
+				 alert(errorThrown);
+				 },
+				 success: function (data, textStatus, jqXHR)
+				 {
+				 console.log(data.requests);
+				 showRequestTable(data.requests);
+				 }
+     });
 }
 
-$(document).ready(function(){
-									
-   $('a[data-toggle="tab"]').on('show.bs.tab', onTabActivated);
-									$('#req-adding-dlg').on('show.bs.modal', onReqCreationDlgOpen);
-   getRequest();	
-	
-});
+function onDocumentReady()
+{
+	$.fn.editable.defaults.mode = 'inline';
+	$('a[data-toggle="tab"]').on('show.bs.tab', onTabActivated);
+	$('#req-adding-dlg').on('show.bs.modal', onReqCreationDlgOpen);
+	getRequest();
+}
+
+$(document).ready(onDocumentReady);
