@@ -10,6 +10,8 @@
     $doc->addScript('https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js');
     $doc->addScript('https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js');
     
+    $doc->addScript('https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js');
+    
     $doc->addScript('components/com_vjeecdcm/js/vjdcm.js');
     $doc->addScript('components/com_vjeecdcm/js/employee.js');
 ?>
