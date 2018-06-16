@@ -11,7 +11,7 @@
     $doc->addScript('https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js');
     
     $doc->addScript('components/com_vjeecdcm/js/vjdcm.js');
-    $doc->addScript('components/com_vjeecdcm/js/empolyee.js');
+    $doc->addScript('components/com_vjeecdcm/js/employee.js');
 ?>
 
 <ul class="nav nav-tabs" id="vjdcm-view-main-tab">
