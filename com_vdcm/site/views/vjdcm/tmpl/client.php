@@ -4,8 +4,6 @@
 	JHtml::_('jquery.framework', false);
 	$doc =  JFactory::getDocument();
 
-		//$doc->addStyleSheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-		//$doc->addStyleSheet('https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css');
 	$doc->addScript('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
 
 	$doc->addScript('https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js');

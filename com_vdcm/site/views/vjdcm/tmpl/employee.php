@@ -1,17 +1,16 @@
 <?php
     defined('_JEXEC') or die('Restricted access');
-
-    JHtml::_('jquery.framework', false) ;
+    JHtml::_('jquery.framework', false);
+    
     $doc =  JFactory::getDocument();
-
-    $doc->addStyleSheet('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-    $doc->addStyleSheet('https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css');
-
+    
+    $doc->addScript('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js');
+    
     $doc->addScript('https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js');
     $doc->addScript('https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js');
     
     $doc->addScript('https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js');
-    
+
     $doc->addScript('components/com_vjeecdcm/js/vjdcm.js');
     $doc->addScript('components/com_vjeecdcm/js/employee.js');
 ?>
