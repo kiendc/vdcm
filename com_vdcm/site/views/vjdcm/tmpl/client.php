@@ -18,26 +18,26 @@
 ?>
 
 <ul class="nav nav-tabs" id="main-client-tab">
-  <li class="active"><a href="#taba" data-toggle="tab">Dashboard</a></li>
-  <li><a href="#tabb" data-toggle="tab">Requests</a></li>
-  <li><a href="#tabc" data-toggle="tab">Messages</a></li>
+    <li class="active"><a href="#taba" data-toggle="tab">Dashboard</a></li>
+    <li><a href="#tabb" data-toggle="tab">Requests</a></li>
+    <li><a href="#tabc" data-toggle="tab">Messages</a></li>
 </ul>
 <br>
 <div class="tab-content" id="tabs">
-<div class="tab-pane active" id="taba">
-<?php 
-echo "Tab a";
-?>
-</div>
-<div class="tab-pane" id="tabb">
-
-<?php
-echo $this->loadTemplate('tab-content-1');
-?>
-</div>
-<div class="tab-pane" id="tabc">
-Tab content 3
-</div>
+    <div class="tab-pane active" id="taba">
+        <?php
+            echo "Tab a";
+        ?>
+    </div>
+    <div class="tab-pane" id="tabb">
+        
+        <?php
+            echo $this->loadTemplate('tab-content-1');
+        ?>
+    </div>
+    <div class="tab-pane" id="tabc">
+        Tab content 3
+    </div>
 </div>
 
 <?php

@@ -39,7 +39,7 @@
           </div>
           <input type="hidden" id="upload-path" value=""/>
 				<?php echo JHtml::_('form.token'); ?>
-				</form>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="reset" class="btn btn-default" style="float:right;">
