@@ -17,7 +17,7 @@
 	$doc->addScript('components/com_vjeecdcm/js/client.js');
 ?>
 
-<ul class="nav nav-tabs" id="main-client-tab">
+<ul class="nav nav-tabs" id="vjdcm-view-main-tab">
     <li class="active"><a href="#taba" data-toggle="tab">Dashboard</a></li>
     <li><a href="#tabb" data-toggle="tab">Requests</a></li>
     <li><a href="#tabc" data-toggle="tab">Messages</a></li>
@@ -26,13 +26,13 @@
 <div class="tab-content" id="tabs">
     <div class="tab-pane active" id="taba">
         <?php
-            echo "Tab a";
+            echo $this->loadTemplate('tab-content-1');
         ?>
+        
     </div>
     <div class="tab-pane" id="tabb">
-        
         <?php
-            echo $this->loadTemplate('tab-content-1');
+            echo "Tab a";
         ?>
     </div>
     <div class="tab-pane" id="tabc">

@@ -14,7 +14,7 @@
     $doc->addScript('components/com_vjeecdcm/js/empolyee.js');
 ?>
 
-<ul class="nav nav-tabs" id="main-client-tab">
+<ul class="nav nav-tabs" id="vjdcm-view-main-tab">
     <li class="active"><a href="#taba" data-toggle="tab">Dashboard</a></li>
     <li><a href="#tabb" data-toggle="tab">Requests</a></li>
     <li><a href="#tabc" data-toggle="tab">Messages</a></li>

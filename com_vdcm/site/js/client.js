@@ -1,9 +1,3 @@
-function activateTab(tab)
-{
-    console.log('activate ' + tab); 
-    $('#main-client-tab a[href="#' + tab + '"]').tab('show');
-}
-
 function onTabActivated(e)
 {
     //console.log('New tab' + e.target);
