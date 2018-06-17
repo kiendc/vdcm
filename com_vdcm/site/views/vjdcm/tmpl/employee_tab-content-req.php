@@ -45,6 +45,10 @@
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="home">
+                    <?php
+                        echo $this->loadTemplate('tab-content-proc-req');
+                        // echo "Request tab for employee";
+                        ?>
                 </div>
                 <div class="tab-pane fade in" id="profile">
                     <div class="list-group">
