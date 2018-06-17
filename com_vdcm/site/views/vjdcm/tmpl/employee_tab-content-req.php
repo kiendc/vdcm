@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
+        <!--
         <div class="col-sm-9 col-md-10">
-            <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
                 </span>Received</a></li>
@@ -12,7 +12,6 @@
                 <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin">
                 </span></a></li>
             </ul>
-            <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="home">
                     <?php
@@ -31,5 +30,6 @@
                     This tab is empty.</div>
             </div>
         </div>
+         -->
     </div>
 </div>
