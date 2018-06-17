@@ -71,7 +71,8 @@
                 </div>
                 <div class="tab-pane fade in" id="profile">
                     <?php
-                        echo $this->loadTemplate('tab_content-proc-req');
+                        //echo $this->loadTemplate('tab_content-proc-req');
+                        echo JText::_('VJEECDCM_RV_BT_CREATE_REQUESTS');
                     ?>
                 </div>
                 <div class="tab-pane fade in" id="messages">

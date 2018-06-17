@@ -28,7 +28,6 @@
             ?>
     </div>
     <div class="tab-pane" id="tabb">
-        
         <?php
             echo $this->loadTemplate('tab-content-req');
         ?>
