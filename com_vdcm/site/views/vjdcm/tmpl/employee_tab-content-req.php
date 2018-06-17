@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-9 col-md-10">
+        <div class="col-sm-12 col-md-12">
             <!-- Split button -->
             <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
                 &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;&nbsp;</button>
@@ -30,7 +30,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-sm-9 col-md-10">
+        <div class="col-sm-12 col-md-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
