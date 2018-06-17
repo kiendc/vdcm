@@ -33,12 +33,12 @@
         <div class="col-sm-12 col-md-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox">
-                </span>Primary</a></li>
-                <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>
-                    Social</a></li>
-                <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>
-                    Promotions</a></li>
+                <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
+                    <?php echo JText::_( 'VJEECDCM_RV_SDMN_RECEIVED' ); ?></a></li>
+                <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;
+                    <?php echo JText::_( 'VJEECDCM_RV_SDMN_PROCESSING' ); ?></a></li>
+                <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;
+                    <?php echo JText::_( 'VJEECDCM_RV_SDMN_COMPLETED' ); ?></a></li>
                 <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin">
                 </span></a></li>
             </ul>
