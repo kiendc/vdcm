@@ -1,39 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-3 col-md-2">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                    Mail <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">Mail</a></li>
-                    <li><a href="#">Contacts</a></li>
-                    <li><a href="#">Tasks</a></li>
-                </ul>
-            </div>
         </div>
         <div class="col-sm-9 col-md-10">
             <!-- Split button -->
-            <div class="btn-group">
-                <button type="button" class="btn btn-default">
-                    <div class="checkbox" style="margin: 0;">
-                        <label>
-                            <input type="checkbox">
-                                </label>
-                    </div>
-                </button>
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li><a href="#">All</a></li>
-                    <li><a href="#">None</a></li>
-                    <li><a href="#">Read</a></li>
-                    <li><a href="#">Unread</a></li>
-                    <li><a href="#">Starred</a></li>
-                    <li><a href="#">Unstarred</a></li>
-                </ul>
-            </div>
             <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
                 &nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-refresh"></span>&nbsp;&nbsp;&nbsp;</button>
             <!-- Single button -->
@@ -63,16 +33,6 @@
     <hr>
     <div class="row">
         <div class="col-sm-3 col-md-2">
-            <a href="#" class="btn btn-danger btn-sm btn-block" role="button"><i class="glyphicon glyphicon-edit"></i> Compose</a>
-            <hr>
-            <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><span class="badge pull-right">32</span> Inbox </a>
-                </li>
-                <li><a href="#">Starred</a></li>
-                <li><a href="#">Important</a></li>
-                <li><a href="#">Sent Mail</a></li>
-                <li><a href="#"><span class="badge pull-right">3</span>Drafts</a></li>
-            </ul>
         </div>
         <div class="col-sm-9 col-md-10">
             <!-- Nav tabs -->
