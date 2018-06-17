@@ -7,7 +7,7 @@
             <!-- Single button -->
             <div class="btn-group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    More <span class="caret"></span>
+                    <?php echo JText::_( 'VJEECDCM_RV_BT_UPDATE_REQUESTS' ); ?>&nbsp;<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
                     <li><a href="#">Mark all as read</a></li>
@@ -30,7 +30,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-sm-11 col-md-11">
+        <div class="col-sm-12 col-md-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
@@ -39,28 +39,31 @@
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_PROCESSING' ); ?></a></li>
                 <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_COMPLETED' ); ?></a></li>
-                <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin">
-                </span></a></li>
+                <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin"></span>&nbsp;
+                    <?php echo JText::_( 'VJEECDCM_RV_SDMN_ARCHIVED' ); ?></a></li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="home">
                     <?php
-                        echo $this->loadTemplate('tab-content-proc-req');
-                        // echo "Request tab for employee";
+                        echo $this->loadTemplate('tab-content-recv-req');
                         ?>
                 </div>
                 <div class="tab-pane fade in" id="profile">
-                    <div class="list-group">
-                        <div class="list-group-item">
-                            <span class="text-center">This tab is empty.</span>
-                        </div>
-                    </div>
+                    <?php
+                        echo $this->loadTemplate('tab-content-proc-req');
+                        ?>
                 </div>
                 <div class="tab-pane fade in" id="messages">
-                    ...</div>
+                    <?php
+                        echo $this->loadTemplate('tab-content-compl-req');
+                        ?>
+                </div>
                 <div class="tab-pane fade in" id="settings">
-                    This tab is empty.</div>
+                    <?php
+                        echo $this->loadTemplate('tab-content-arch-req');
+                        ?>
+                </div>
             </div>
             
         </div>
