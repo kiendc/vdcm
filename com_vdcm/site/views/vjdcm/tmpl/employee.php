@@ -31,7 +31,7 @@
         
         <?php
             echo $this->loadTemplate('tab-content-req');
-            ?>
+        ?>
     </div>
     <div class="tab-pane" id="tabc">
         Tab content 3
