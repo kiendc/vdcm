@@ -1,7 +1,5 @@
 <div class="container">
     <div class="row">
-        <div class="col-sm-3 col-md-2">
-        </div>
         <div class="col-sm-9 col-md-10">
             <!-- Split button -->
             <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
@@ -32,8 +30,6 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-sm-3 col-md-2">
-        </div>
         <div class="col-sm-9 col-md-10">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
