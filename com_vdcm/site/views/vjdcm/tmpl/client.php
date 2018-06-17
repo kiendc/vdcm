@@ -26,7 +26,6 @@
         <?php
             echo $this->loadTemplate('tab-content-1');
         ?>
-        
     </div>
     <div class="tab-pane" id="tabb">
         <?php
