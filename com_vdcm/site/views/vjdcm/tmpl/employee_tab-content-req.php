@@ -56,7 +56,7 @@
                 </div>
                 <div class="tab-pane fade in" id="messages">
                     <?php
-                        echo $this->loadTemplate('tab-content-compl-req');
+                        echo $this->loadTemplate('tab-content-comp-req');
                         ?>
                 </div>
                 <div class="tab-pane fade in" id="settings">
