@@ -1,29 +1,31 @@
 function showRequestTable(step, data)
 {
     if (step == 2)
-        $('#recv-reqs-table').
-        DataTable(
-                  {
-                  data: data,
-                  columns :
-                  [
-                   {data: 'request_id', orderable: false},
-                   {data: 'code'},
-                   {data: 'created_date'},
-                   {data: 'holder_name'},
-                   {data: 'degree_name'},
-                   {data: 'route'},
-                   {data: 'name'}
-                   ],
-                  columnDefs:
-                  [{
-                   targets: 0,
-                   render: function (data, type, full, meta)
-                   {
-                   return '<input type="checkbox" name="id[]" value="' + data + '">';
-                   }
-                   }],
-                  });
+    {
+        $('#recv-reqs-table').DataTable(
+                                        {
+                                        data: data,
+                                        columns :
+                                        [
+                                         {data: 'request_id', orderable: false},
+                                         {data: 'code'},
+                                         {data: 'created_date'},
+                                         {data: 'holder_name'},
+                                         {data: 'degree_name'},
+                                         {data: 'route'},
+                                         {data: 'name'}
+                                         ],
+                                        columnDefs:
+                                        [{
+                                         targets: 0,
+                                         render: function (data, type, full, meta)
+                                         {
+                                         return '<input type="checkbox" name="id[]" value="' + data + '">';
+                                         }
+                                         }],
+                                        });
+        return;
+    }
     //activateTab('taba');
     //$('main-client-tab a:first').tab('show');
 }
@@ -55,7 +57,7 @@ function getRequest(step)
 
 function onTabActivated(e)
 {
-    console.log(e.href);
+    console.log(e);
     getRequest(2);
 }
 
