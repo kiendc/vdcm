@@ -48,7 +48,7 @@ class VjeecDcmModelEmplReqList extends JModelList
   
   ////////////////////////////////////////////////////////////////////////////
   
-    public function getRequests()
+    public function getRequestsOfStep($step)
     {
         $db = JFactory::getDBO();
         $query = $db->getQuery(true);
@@ -74,7 +74,7 @@ class VjeecDcmModelEmplReqList extends JModelList
         ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
         ->join('INNER', '#__vjeecdcm_process AS e ON (a.current_processing_step = e.id)')
         ->join('INNER', '#__vjeecdcm_processing_step_name AS f ON (e.name_id = f.id)')
-        ->where('directory_id IS NULL OR directory_id >= 0')
+        ->where('directory_id IS NULL OR directory_id >= 0 AND e.id = '. $step)
         ->order('a.id DESC');
         try
         {
@@ -183,7 +183,6 @@ class VjeecDcmModelEmplReqList extends JModelList
   
   ////////////////////////////////////////////////////////////////////////////
   
-  
   public function getNoTargetRequests()
   {
     $db = JFactory::getDBO();
@@ -211,11 +210,8 @@ class VjeecDcmModelEmplReqList extends JModelList
           ->where('a.target_school_id = 0');
     try 
     {
-      //dump($query->__toString(), 'ModelCoopRequest::getRequests, query');
       $db->setQuery($query);
       $requests = $db->loadObjectList();
-      //dump($result, 'ModelCoopRequest::getRequests, result');
-      // Load detail of each request
       foreach ($requests as $rq)
       {
         $rq->requester_name = JFactory::getUser($rq->user_id)->get('name');

@@ -12,7 +12,7 @@ class VjeecDcmControllerReqEmployee extends JControllerForm
     {
         JSession::checkToken() or die ('Invalid token');
         $reqModel = $this->getModel('emplreqlist');
-        $reqs = $reqModel->getRequests();
+        $reqs = $reqModel->getRequestsOfStep($_POST["step"]);
         foreach ($reqs as $r)
         {
             $r->degree_name = JText::_($r->degree_name);
