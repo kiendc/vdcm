@@ -33,7 +33,7 @@
         <div class="col-sm-12 col-md-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
+                <li class="active"><a href="#home" data-toggle="tab" id="recv-req"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_RECEIVED' ); ?></a></li>
                 <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_PROCESSING' ); ?></a></li>
