@@ -22,7 +22,7 @@ function showRequestTable(step, data)
     //$('main-client-tab a:first').tab('show');
 }
 
-function getRequest(int step)
+function getRequest(step)
 {
     var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=reqemployee.getRequests";
     data = {};
