@@ -32,7 +32,7 @@ function showRequestTable(step, data)
 function getRequest(step)
 {
     var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=reqemployee.getRequests";
-    data = {};
+    var data = {};
     data[frmTk] = 1;
     data["step"] = step;
     console.log(url);
