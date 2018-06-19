@@ -12,7 +12,7 @@ jimport('joomla.application.component.controller');
 class VjeecDcmController extends JControllerLegacy
 {
     
-    public function display()
+    public function display($cachable = false, $urlparams = Array())
     {      
         parent::display();
     }

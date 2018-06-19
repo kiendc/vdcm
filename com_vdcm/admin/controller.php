@@ -17,5 +17,3 @@ class VjeecDcmController extends JControllerLegacy
         return $this;
     }
 }
-
-?>
