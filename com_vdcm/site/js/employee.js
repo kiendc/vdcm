@@ -12,8 +12,7 @@ function showRequestTable(step, data)
                                          {data: 'created_date'},
                                          {data: 'holder_name'},
                                          {data: 'degree_name'},
-                                         {data: 'route'},
-                                         {data: 'name'}
+                                         {data: 'route'}
                                          ],
                                         columnDefs:
                                         [{

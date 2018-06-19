@@ -74,7 +74,7 @@ class VjeecDcmModelEmplReqList extends JModelList
         ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
         ->join('INNER', '#__vjeecdcm_process AS e ON (a.current_processing_step = e.id)')
         ->join('INNER', '#__vjeecdcm_processing_step_name AS f ON (e.name_id = f.id)')
-        ->where('directory_id IS NULL OR directory_id >= 0 AND e.id = '. $step)
+        ->where('directory_id IS NULL OR directory_id >= 0 AND proc_step_id = '. $step)
         ->order('a.id DESC');
         try
         {
