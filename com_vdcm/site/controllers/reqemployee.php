@@ -20,8 +20,8 @@ class VjeecDcmControllerReqEmployee extends JControllerForm
         $reqModel = $this->getModel('emplreqlist');
         $reqs = $reqModel->getRequestsOfStep($_POST["step"]);
         $logEntry = new JLogEntry('Test logging', JLog::INFO, 'vjeecdcm');
-        $logEntry->command = 'reqemployee.getRequests';
-        $logEntry->user = JFactory::getUser()->username;
+        //$logEntry->command = 'reqemployee.getRequests';
+        //$logEntry->user = JFactory::getUser()->username;
         JLog::add($logEntry);
         
         foreach ($reqs as $r)
