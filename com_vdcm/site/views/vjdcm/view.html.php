@@ -27,7 +27,7 @@ jimport('joomla.application.component.view');
             {
                 $this->setLayout('employee');
             }
-            $article =& JTable::getInstance("content");
+            $article = JTable::getInstance("content");
             
             if ($lang == 'ja-JP')
             {

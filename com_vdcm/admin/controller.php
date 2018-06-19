@@ -7,7 +7,7 @@ class VjeecDcmController extends JControllerLegacy
 {
     protected $default_view = 'requests';
     
-   	public function display()
+   	public function display($cachable = false, $urlparams = Array)
     { 
     	$view	= JRequest::getCmd('view', 'requests');
 		$layout = JRequest::getCmd('layout', 'default');
