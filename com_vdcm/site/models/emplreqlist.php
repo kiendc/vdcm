@@ -6,7 +6,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modellist');
 // Include dependancy of the dispatcher
 jimport('joomla.event.dispatcher');
- 
+    jimport('joomla.log.log');
 class VjeecDcmModelEmplReqList extends JModelList
 {
    
@@ -98,7 +98,10 @@ class VjeecDcmModelEmplReqList extends JModelList
         } 
         catch (Exception $e) 
         {
-            //JFactory::getApplication()->enqueueMessage('There is something wrong in collecting the requests of this user' , 'error');
+            $logEntry = new JLogEntry('Exception in executing query', JLog::ERROR, 'vjeecdcm');
+            $logEntry->command = 'emplreqlist.getRequestsOfStep';
+            $logEntry->user = JFactory::getUser()->username;
+            JLog::add($logEntry);
             return NULL;
         }
         

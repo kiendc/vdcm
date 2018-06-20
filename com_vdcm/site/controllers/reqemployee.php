@@ -12,9 +12,10 @@ class VjeecDcmControllerReqEmployee extends JControllerForm
     public function getRequests()
     {
         JSession::checkToken() or die ('Invalid token');
+        $step = $_POST["step"];
         JLog::addLogger(
                        array('text_file' => 'vjeecdcm.log',
-                             'text_entry_format' => '{DATETIME} {CLIENTIP} {USER} {COMMAND} {MESSAGE}'),
+                             'text_entry_format' => '{DATETIME} {CLIENTIP} {USER} {COMMAND} {PARAMS} {MESSAGE}'),
                        JLog::ALL,
                        array('vjeecdcm')
                        );
@@ -24,7 +25,7 @@ class VjeecDcmControllerReqEmployee extends JControllerForm
         JLog::add($logEntry);
         JLog::add('Test logging', JLog::INFO, 'joomlafailure');
         $reqModel = $this->getModel('emplreqlist');
-        $reqs = $reqModel->getRequestsOfStep($_POST["step"]);
+        $reqs = $reqModel->getRequestsOfStep($step);
         
         
         foreach ($reqs as $r)
