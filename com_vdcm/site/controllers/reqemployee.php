@@ -12,13 +12,13 @@ class VjeecDcmControllerReqEmployee extends JControllerForm
     public function getRequests()
     {
         JSession::checkToken() or die ('Invalid token');
-        /*JLog::addLoger(
+        JLog::addLoger(
                        array('text_file' => 'vjeecdcm.log',
                              'text_entry_format' => '{DATETIME} {CLIENTIP} {USER} {COMMAND} {MESSAGE}'),
                        JLog::ALL,
                        array('vjeecdcm')
                        );
-        $logEntry = new JLogEntry('Test logging', JLog::INFO, 'vjeecdcm');
+        /*$logEntry = new JLogEntry('Test logging', JLog::INFO, 'vjeecdcm');
         $logEntry->command = 'reqemployee.getRequests';
         $logEntry->user = JFactory::getUser()->username;
         JLog::add($logEntry);*/
