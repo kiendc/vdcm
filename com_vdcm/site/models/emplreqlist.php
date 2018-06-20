@@ -101,6 +101,7 @@ class VjeecDcmModelEmplReqList extends JModelList
             $logEntry = new JLogEntry('Exception in executing query', JLog::ERROR, 'vjeecdcm');
             $logEntry->command = 'emplreqlist.getRequestsOfStep';
             $logEntry->user = JFactory::getUser()->username;
+            $logEntry->params = ' ' . $step;
             JLog::add($logEntry);
             return NULL;
         }
