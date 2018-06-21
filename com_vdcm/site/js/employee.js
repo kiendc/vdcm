@@ -43,7 +43,7 @@ function getRequest(step)
 function onReqsTabActivated(e)
 {
     var tabId = e.target.attributes[0].value;
-    console.log(e.target.attr('id'));
+    console.log(e);
     if (tabId.localeCompare('#subm') == 0)
         getRequest(2);
     else
