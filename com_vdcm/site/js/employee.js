@@ -50,7 +50,7 @@ function onDocumentReady()
 {
     $.fn.editable.defaults.mode = 'inline';
     initializedTables();
-    $('#reqs-tab a[data-toggle="tab"]').on('show.bs.tab', onReqsTabActivated);
+    $('#req-tabs a[data-toggle="tab"]').on('show.bs.tab', onReqsTabActivated);
 }
 
 $(document).ready(onDocumentReady);
