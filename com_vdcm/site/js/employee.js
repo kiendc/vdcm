@@ -70,7 +70,7 @@ function getRequest(step)
            });
      */
     if (step == 2)
-        submTable.ajax.reload(null, false);
+        submTabl.ajax.reload(null, false);
 }
 
 function onTabActivated(e)
