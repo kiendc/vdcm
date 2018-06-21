@@ -36,8 +36,8 @@ function initializedTables()
 
 function getRequest(step)
 {
-        if (step == 2)
-        submTabl.ajax.reload(null, false);
+   if (step == 2)
+       submTabl.ajax.reload(null, false);
 }
 
 function onReqsTabActivated(e)
@@ -50,7 +50,7 @@ function onDocumentReady()
 {
     $.fn.editable.defaults.mode = 'inline';
     initializedTables();
-    $('#reqs-tab > a[data-toggle="tab"]').on('show.bs.tab', onReqsTabActivated);
+    $('#reqs-tab a[data-toggle="tab"]').on('show.bs.tab', onReqsTabActivated);
 }
 
 $(document).ready(onDocumentReady);
