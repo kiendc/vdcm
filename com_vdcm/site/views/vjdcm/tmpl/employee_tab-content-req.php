@@ -32,9 +32,9 @@
     <div class="row">
         <div class="col-sm-12 col-md-12">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#home" data-toggle="tab" id="recv-req"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
-                    <?php echo JText::_( 'VJEECDCM_RV_SDMN_RECEIVED' ); ?></a></li>
+            <ul class="nav nav-tabs" id="req-tabs">
+                <li class="active"><a href="#subm" data-toggle="tab" id="recv-req"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
+                    <?php echo JText::_( 'VJEECDCM_REQUEST_PROCESS_SUBMITTED' ); ?></a></li>
                 <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_PROCESSING' ); ?></a></li>
                 <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;
@@ -44,7 +44,7 @@
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
-                <div class="tab-pane fade in active" id="home">
+                <div class="tab-pane fade in active" id="subm">
                     <?php
                         echo $this->loadTemplate('tab-content-recv-req');
                         ?>

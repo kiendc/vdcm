@@ -33,47 +33,14 @@ function initializedTables()
                                                 }],
                                                });
 }
-function showRequestTable(step, data)
-{
-    if (step == 2)
-    {
-        
-        return;
-    }
-    //activateTab('taba');
-    //$('main-client-tab a:first').tab('show');
-}
 
 function getRequest(step)
 {
-    /*
-    var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=reqemployee.getRequests";
-    var data = {};
-    data[frmTk] = 1;
-    data["step"] = step;
-    console.log(url);
-    
-    $.ajax({
-           url: url,
-           data: data,
-           dataType: "json",
-           type: 'POST',
-           error: function (jqXHR, textStatus, errorThrown)
-           {
-           alert(errorThrown);
-           },
-           success: function (data, textStatus, jqXHR)
-           {
-           console.log(data.requests);
-           showRequestTable(step, data.requests);
-           }
-           });
-     */
-    if (step == 2)
+        if (step == 2)
         submTabl.ajax.reload(null, false);
 }
 
-function onTabActivated(e)
+function onReqsTabActivated(e)
 {
     console.log(e);
     getRequest(2);
@@ -83,7 +50,7 @@ function onDocumentReady()
 {
     $.fn.editable.defaults.mode = 'inline';
     initializedTables();
-    $('a[data-toggle="tab"]').on('show.bs.tab', onTabActivated);
+    $('#reqs-tab > a[data-toggle="tab"]').on('show.bs.tab', onReqsTabActivated);
 }
 
 $(document).ready(onDocumentReady);
