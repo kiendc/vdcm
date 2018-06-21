@@ -11,7 +11,7 @@ function initializedTables()
                                                 data: data,
                                                dataSrc: function(servResp){
                                                 console.log(servResp);
-                                                return servResp.requests);
+                                                return servResp.requests;
                                                }
                                                },
                                                columns :
