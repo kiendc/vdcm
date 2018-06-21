@@ -54,12 +54,12 @@
                         echo $this->loadTemplate('tab-content-proc-req');
                         ?>
                 </div>
-                <div class="tab-pane fade in" id="messages">
+                <div class="tab-pane fade in" id="comp">
                     <?php
                         echo $this->loadTemplate('tab-content-comp-req');
                         ?>
                 </div>
-                <div class="tab-pane fade in" id="settings">
+                <div class="tab-pane fade in" id="arch">
                     <?php
                         echo $this->loadTemplate('tab-content-arch-req');
                         ?>
