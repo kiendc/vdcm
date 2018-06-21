@@ -33,13 +33,13 @@
         <div class="col-sm-12 col-md-12">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="req-tabs">
-                <li class="active"><a href="#subm" data-toggle="tab" id="recv-req"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
+                <li class="active"><a href="#subm" data-toggle="tab"><span class="glyphicon glyphicon-inbox"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_REQUEST_PROCESS_SUBMITTED' ); ?></a></li>
-                <li><a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;
+                <li><a href="#proc" data-toggle="tab"><span class="glyphicon glyphicon-user"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_PROCESSING' ); ?></a></li>
-                <li><a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-tags"></span>&nbsp;
+                <li><a href="#comp" data-toggle="tab" id=""><span class="glyphicon glyphicon-tags"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_COMPLETED' ); ?></a></li>
-                <li><a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin"></span>&nbsp;
+                <li><a href="#arch" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin"></span>&nbsp;
                     <?php echo JText::_( 'VJEECDCM_RV_SDMN_ARCHIVED' ); ?></a></li>
             </ul>
             <!-- Tab panes -->
@@ -49,7 +49,7 @@
                         echo $this->loadTemplate('tab-content-recv-req');
                         ?>
                 </div>
-                <div class="tab-pane fade in" id="profile">
+                <div class="tab-pane fade in" id="proc">
                     <?php
                         echo $this->loadTemplate('tab-content-proc-req');
                         ?>

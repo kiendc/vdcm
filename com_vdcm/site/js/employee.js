@@ -42,8 +42,12 @@ function getRequest(step)
 
 function onReqsTabActivated(e)
 {
-    console.log(e);
-    getRequest(2);
+    var tabId = e.target.attributes[0].value;
+    console.log(e.target.attr('id'));
+    if (tabId.localeCompare('#subm') == 0)
+        getRequest(2);
+    else
+        console.log(tabId + ' is activated');
 }
 
 function onDocumentReady()
