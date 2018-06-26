@@ -1,3 +1,14 @@
+function checkboxColumnRender(data, type, full, meta)
+{
+    return '<input type="checkbox" name="id[]" value="' + data + '">';
+}
+
+function servResponseToTableData(servResp)
+{
+    console.log(servResp);
+    return servResp.requests;
+}
+
 function initializedTables()
 {
     var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=reqemployee.getRequests";
@@ -6,13 +17,10 @@ function initializedTables()
     data["step"] = 2;
     submTabl = $('#recv-reqs-table').DataTable({
                                                ajax: {
-                                                url: url,
-                                                type: 'POST',
-                                                data: data,
-                                               dataSrc: function(servResp){
-                                                console.log(servResp);
-                                                return servResp.requests;
-                                               }
+                                               url: url,
+                                               type: 'POST',
+                                               data: data,
+                                               dataSrc: servResponseToTableData
                                                },
                                                columns :
                                                [
@@ -26,10 +34,7 @@ function initializedTables()
                                                columnDefs:
                                                [{
                                                 targets: 0,
-                                                render: function (data, type, full, meta)
-                                                {
-                                                return '<input type="checkbox" name="id[]" value="' + data + '">';
-                                                }
+                                                render: checkboxColumnRender
                                                 }],
                                                });
     data["step"] = 3;
@@ -55,10 +60,7 @@ function initializedTables()
                                                columnDefs:
                                                [{
                                                 targets: 0,
-                                                render: function (data, type, full, meta)
-                                                {
-                                                return '<input type="checkbox" name="id[]" value="' + data + '">';
-                                                }
+                                                render: checkboxColumnRender
                                                 }],
                                                });
     data["step"] = 5;
@@ -67,10 +69,7 @@ function initializedTables()
                                                url: url,
                                                type: 'POST',
                                                data: data,
-                                               dataSrc: function(servResp){
-                                               console.log(servResp);
-                                               return servResp.requests;
-                                               }
+                                               dataSrc: servResponseToTableData
                                                },
                                                columns :
                                                [
@@ -84,10 +83,30 @@ function initializedTables()
                                                columnDefs:
                                                [{
                                                 targets: 0,
-                                                render: function (data, type, full, meta)
-                                                {
-                                                return '<input type="checkbox" name="id[]" value="' + data + '">';
-                                                }
+                                                render: checkboxColumnRender
+                                                }],
+                                               });
+    data["step"] = 6;
+    archTabl = $('#arch-reqs-table').DataTable({
+                                               ajax: {
+                                               url: url,
+                                               type: 'POST',
+                                               data: data,
+                                               dataSrc: servResponseToTableData
+                                               },
+                                               columns :
+                                               [
+                                                {data: 'request_id', orderable: false},
+                                                {data: 'code'},
+                                                {data: 'created_date'},
+                                                {data: 'holder_name'},
+                                                {data: 'degree_name'},
+                                                {data: 'route'}
+                                                ],
+                                               columnDefs:
+                                               [{
+                                                targets: 0,
+                                                render: checkboxColumnRender
                                                 }],
                                                });
 }
@@ -107,9 +126,9 @@ function onReqsTabActivated(e)
     else if (tabId.localeCompare('#proc') == 0)
         procTabl.ajax.reload(null, false);
     else if (tabId.localeCompare('#comp') == 0)
-        procTabl.ajax.reload(null, false);
+        compTabl.ajax.reload(null, false);
     else
-        console.log(tabId + ' is activated');
+        archTabl.ajax.reload(null, false);
 }
 
 function onDocumentReady()
