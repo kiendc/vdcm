@@ -171,20 +171,43 @@ class VjeecDcmControllerClient extends JControllerForm
         echo json_encode($exhb);
         jexit();
     }
-    
-    public function getRequests()
+    public function getDiplomaDegrees()
     {
-	JSession::checkToken() or die ('Invalid token');
-	$reqModel = $this->getModel('request');
-	$reqs = $reqModel->getCreatedRequests();
-	foreach ($reqs as $r)
-	{
-		$r->degree_name = JText::_($r->degree_name);
-		$r->name = JText::_($r->name);
-	}
-   	$table = array( array (1, 2, 3, 4, 5, 6), array (7, 8, 9, 10, 12, 12));
-	$data = array("draw" => 1, "recordsTotal" => 2, "requests" => $reqs, "data" => $table, "postdata" => $_POST);
+        JSession::checkToken() or die ('Invalid token');
+        $dplmModel = $this->getModel('diploma');
+        $degrees = $dplmModel->getDiplomaDegrees();
+        foreach ($degrees as $deg)
+        {
+            $deg->name = JText::_($deg->name);
+        }
+
+        $data = array("degrees" => $degrees);
         echo json_encode($data);
         jexit();
-    }  
+    }
+    public function getRequests()
+    {
+        JSession::checkToken() or die ('Invalid token');
+        $reqModel = $this->getModel('request');
+        $reqs = $reqModel->getCreatedRequests();
+        foreach ($reqs as $r)
+        {
+            $r->degree_name = JText::_($r->degree_name);
+            $r->name = JText::_($r->name);
+        }
+        $table = array( array (1, 2, 3, 4, 5, 6), array (7, 8, 9, 10, 12, 12));
+        $data = array("draw" => 1, "recordsTotal" => 2, "requests" => $reqs, "data" => $table, "postdata" => $_POST);
+        echo json_encode($data);
+        jexit();
+    }
+    
+    public function getSchools()
+    {
+        JSession::checkToken() or die ('Invalid token');
+        $schlModel = $this->getModel('school');
+        $schools = $schlModel->getAllSchools();
+        $data = array("schools" => $schools);
+        echo json_encode($data);
+        jexit();
+    }
 }

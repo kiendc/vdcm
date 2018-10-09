@@ -6,17 +6,37 @@ function onTabActivated(e)
 
 function onReqCreationDlgOpen()
 {
-	$('#req-detail-target-school').editable();
-	$('#req-detail-type').editable();
-	$('#exampleInputEmail1').editable();
-	$('#req-detail-diploma').editable();
-	$('#req-detail-holder').editable();
-	$('#req-detail-holder-info-1').editable();
-	$('#req-detail-holder-info-4').editable();
-	$('#req-detail-holder-info-2').editable();
-	$('#req-detail-holder-info-3').editable();
-	console.log("Dialog open");
-	
+    getDiplomaDegree();
+    getSchool();
+    //bs_input_file();
+    console.log("Dialog open");
+}
+
+function onUploadFileChange(files) {
+    if ( (typeof files === "undefined") || files.length == 0 )
+        
+        return;
+    
+    var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=client.uploadFile";
+    var fileName = files[0].name;
+    console.log(fileName);
+    var formData = new FormData();
+    formData.append('upload-file', files[0], fileName);
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            // File(s) uploaded.
+            console.log('File is uploaded');
+            
+            $('#upload-file-info').html(fileName);
+            $('#file-preview').html('<embed src="../tmp/' + fileName + '" frameborder="0" width="100%" height="400px"/>');
+        } else {
+            alert('An error occurred!');
+        }
+    };
+    xhr.send(formData);
+    
 }
 
 function showRequestTable(data)
@@ -44,13 +64,11 @@ function showRequestTable(data)
     //$('main-client-tab a:first').tab('show');
 }
 
-function getRequest()
+function getDiplomaDegree()
 {
-    var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=client.getRequests";
+    var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=client.getDiplomaDegrees";
     data = {};
     data[frmTk] = 1;
-    console.log(url);
-    
     $.ajax({
            url: url,
            data: data,
@@ -58,19 +76,81 @@ function getRequest()
            type: 'POST',
            error: function (jqXHR, textStatus, errorThrown)
            {
+           console.log("Error in sending ajax request to controller client");
+           alert(errorThrown);
+           },
+           success: function (reponse, textStatus, jqXHR)
+           {
+                console.log(reponse);
+                var selectData = [];
+                for (degree of reponse.degrees)
+                {
+                    selectData.push({id : degree.id, text: degree.name});
+                }
+                $('#req-detail-diploma').select2({
+                                                 data : selectData
+                                                 });
+           }
+           });
+}
+
+function getRequest()
+{
+    var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=client.getRequests";
+    data = {};
+    data[frmTk] = 1;
+    console.log(url);
+    console.log(document.location.pathname);
+    $.ajax({
+           url: url,
+           data: data,
+           dataType: "json",
+           type: 'POST',
+           error: function (jqXHR, textStatus, errorThrown)
+           {
+           console.log("Error in sending ajax request to controller client");
            alert(errorThrown);
            },
            success: function (data, textStatus, jqXHR)
            {
-           console.log(data.requests);
+           console.log(data);
            showRequestTable(data.requests);
+           }
+           });
+}
+
+function getSchool()
+{
+    var url = document.location.origin + "/index.php?option=com_vjeecdcm&task=client.getSchools";
+    data = {};
+    data[frmTk] = 1;
+    $.ajax({
+           url: url,
+           data: data,
+           dataType: "json",
+           type: 'POST',
+           error: function (jqXHR, textStatus, errorThrown)
+           {
+           console.log("Error in sending ajax request to controller client");
+           alert(errorThrown);
+           },
+           success: function (reponse, textStatus, jqXHR)
+           {
+           console.log(reponse);
+           var selectData = [];
+           for (school of reponse.schools)
+           {
+           selectData.push({id : school.id, text: school.name});
+           }
+           $('#req-detail-target-school').select2({
+                                                  data : selectData
+                                                  });
            }
            });
 }
 
 function onDocumentReady()
 {
-    $.fn.editable.defaults.mode = 'inline';
     $('a[data-toggle="tab"]').on('show.bs.tab', onTabActivated);
     $('#req-adding-dlg').on('show.bs.modal', onReqCreationDlgOpen);
     getRequest();
