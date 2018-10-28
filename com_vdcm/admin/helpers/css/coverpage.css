@@ -1,0 +1,38 @@
+#tbl_school_info { 
+	padding:0;margin:60pt 0 0 60pt;
+	border:1px solid #000;
+	font-size:10pt;
+	font-family:Arial;
+	font-weight:bold;
+}
+
+#tbl_school_info td {
+	width:430pt;
+	padding:3pt 0 3pt 5pt;
+}
+  							
+#shipment {
+	padding:0;margin:40pt 0 10pt 65pt;font-size:10pt;
+}
+  		
+#tbl_list_student { 
+	border-collapse: collapse;
+	padding:0;
+	margin:0 0 0 60pt;
+	font-size:10pt;
+	font-family:Arial;
+}
+  							
+#tbl_list_student tr td { border: 1px solid #000;}
+#tbl_list_student tr#tr_head td {text-align:center;font-weight:bold;padding:3pt 0 6pt 0;color:#002060;}
+#tbl_list_student tr.content td {padding:3pt 0 10pt 0;word-wrap: break-word;text-align:center;}
+#tbl_list_studdent td#header {
+	border:1px solid #000;w
+	idth:435pt;vertical-align:top;padding:6pt 0 15pt 0;text-align:center;font-weight:bold;color:#002060; background:#dbe5f1;font-size:10pt;font-family:Arial;
+	}
+#tbl_jalsa { border-collapse: collapse;padding:0;font-size:10pt;font-family:Arial;}
+							#tbl_jalsa tr td { border:1px solid #000;text-align:left;word-wrap: break-word;}
+							#tbl_jalsa tr#tr_head2 {background: #92d050;font-weight:bold;font-size:11pt;color:#002060;}
+							#tbl_jalsa tr#tr_head2 td{ padding: 3pt 0 6pt 0;text-align:center;}
+							#tbl_jalsa tr.content2 td { padding:0 0 0 5pt;}
+							#shipment2 { font-weight:bold;padding:0;margin:40pt 0 10pt 65pt;font-size:12pt;}
