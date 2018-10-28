@@ -31,7 +31,7 @@ class VjeecDcmModelCoverpage extends JModelList
       return $dates;
     } 
     catch (Exception $e) 
-    {
+      {
       //JFactory::getApplication()->enqueueMessage('There is something wrong in collecting the requests of this user' , 'error');
       JLog::add('Error in get requests for cover page', JLog::ERROR);
       return NULL;
@@ -40,20 +40,24 @@ class VjeecDcmModelCoverpage extends JModelList
   
   public function getRequests($expectedDate)
   {
-    $db = JFactory::getDBO();
-    $query = $db->getQuery(true);
-    $query->select(array('a.created_date',
-                         'a.id AS request_id',
-                         'b.holder_name',
-                         'c.degree_code',
-			 'd.name AS school_name'
-                         ))
-          ->from('#__vjeecdcm_diploma_request AS a')
-          ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
-          ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
-	  ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
-          ->where('a.expected_send_date IS NOT NULL AND expected_send_date = "'. $expectedDate .'"')
-          ->order('school_name');
+      $db = JFactory::getDBO();
+      $query = $db->getQuery(true);
+      $query->select(array('a.created_date',
+                           'a.id AS request_id',
+                           'b.holder_name',
+                           'c.degree_code',
+                           'd.name AS school_name'));
+      
+      $query->from('#__vjeecdcm_diploma_request AS a');
+      $query->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)');
+      $query->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)');
+      $query->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)');
+      
+      $query->where('a.expected_send_date IS NOT NULL', 'AND');
+      $query->where('a.expected_send_date = "'. $expectedDate .'"', 'AND');
+      $query->where('b.forgery == 0');
+      
+      $query->order('school_name');
     try 
     {
       //dump($query->__toString(), 'ModelCoopRequest::getRequests, query');
