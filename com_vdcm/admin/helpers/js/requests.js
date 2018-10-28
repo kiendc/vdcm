@@ -332,7 +332,7 @@ $(document).ready(function() {
 	      changeMonth: true,
 	      changeYear: true,
 	      dateFormat: 'dd/mm/yy',
-	      yearRange : '1964:2016'
+	      yearRange : '1964:2050'
     });
 
 	function makeSelected(selector, val) { 
@@ -391,7 +391,7 @@ $(document).ready(function() {
 					$('#student_idno').val(data.id_no);
 					$('#student_major').val(data.major);
 					$('#reg_no').val(data.reg_no);
-					$('#issued_date').val(data.issue_date);
+					$('#issued_date').val(data.issue_date);                                        
 					$('#issued_by').val(data.issuer);
 					var isFinish = data.certificate_finished;
 					if (isFinish == "2") { 
@@ -681,4 +681,20 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	$('#coverpage-date').editable({	
+    	    type: 'select2',
+    	    mode: 'inline',
+    	    url: "index.php?option=com_vjeecdcm&task=employee.editDiplomaDetail",
+    	    ajaxOptions: {
+    		dataType: 'json'
+    	    },
+    	    params : function (params) {		    
+    		params.pk = parseInt($('#req-detail-dplm-id').html());
+    	        return params;
+    	    },
+    	    source: "index.php?option=com_vjeecdcm&task=employee.getSelect2ExhibitList",
+    	    select2: {
+    			width: "350px",
+    	    }
+    	});	
 })

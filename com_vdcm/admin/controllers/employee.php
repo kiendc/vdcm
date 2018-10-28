@@ -122,6 +122,7 @@ class VjeecDcmControlleremployee extends JControllerForm
             $arrSchools[] = (object) array('id' => $schl->id, 'text' => $schl->name);       
         }
         echo json_encode($arrSchools);
+        //echo json_encode(array("results" => $arrSchools));
         jexit();
     }
     

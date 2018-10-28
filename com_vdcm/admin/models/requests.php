@@ -242,7 +242,12 @@ class VjeecDcmModelRequests extends JModelList {
   		
   		return $ret;
   	}
-  	
+  	public function formatCoverPage(&$list)
+  	{
+  		foreach ($list as $item) {
+  			$item->holder_name = strtoupper(VjeecHelper::remove_vietnamese_accents($item->holder_name));
+  		}
+  	}
   	public function generateCoverPage($list, $date, $type='school') { 
   		require_once JPATH_COMPONENT.'/helpers/vjeec.php';
   		
@@ -257,7 +262,7 @@ class VjeecDcmModelRequests extends JModelList {
 		
 		$tbody = '';
 		$i = 1;
-		foreach ($list as $item) { 
+		foreach ($list as &$item) { 
 			if ($type == 'school') { 
 				$tbody .= '<tr class="content">
 							<td valign="top" style="width:35pt;">'. $i .'</td>
@@ -530,6 +535,7 @@ class VjeecDcmModelRequests extends JModelList {
 			$query->where('(b.certificater = '. $loggedUser->get('id') .' OR b.transcripter = '. $loggedUser->get('id') .' ) ');
 		}
 		
+		$filterIsSet = false;
 		// Filter the items over the search string if set.
 		if ($this->getState('filter.search') !== '') { 
 			// Escape the search token.
@@ -551,6 +557,7 @@ class VjeecDcmModelRequests extends JModelList {
 
 			// Add the clauses to the query.
 			$query->where('('.implode(' OR ', $searches).')');
+			//$filterIsSet = true;
 		}
 		
 		$state = (int)$this->getState('filter.state');
@@ -558,28 +565,38 @@ class VjeecDcmModelRequests extends JModelList {
 			$query->where('(directory_id IS NULL OR directory_id >= 0)');
 		} else { 
 			$query->where('directory_id = ' . $state);
+			//$filterIsSet = true;
 		}
 		
 		$schoolId = (int)$this->getState('filter.school');
 		if ($schoolId) { 
 			$query->where('d.id = ' . $schoolId);
+			$filterIsSet = true;
 		}
 		
 		$requesterId = (int)$this->getState('filter.requester');
 		if ($requesterId) { 
 			$query->where('u.id = ' . $requesterId);
+			$filterIsSet = true;
 		}
 		
 		$status = (int)$this->getState('filter.status');
 		if ($status) { 
 			$query->where('f.id = ' . $status);
+			$filterIsSet = true;
 		}
 		
 		$expectedSendDate = $this->getState('filter.expectedSendDate');
 		if ($expectedSendDate) { 
 			$query->where('a.expected_send_date = "' . $expectedSendDate . '"');
+			$filterIsSet = true;
 		}
 		
+		if (!$filterIsSet){
+			$query->where('a.created_date  BETWEEN "2018-08-19" AND "2019-03-31"', 'AND');
+			$query->where('f.id != 5', 'AND');
+			$query->where('f.id != 6');
+		}	
 		// Add the list ordering clause.
 		$orderBy = $db->escape($this->getState('list.ordering', 'a.id'));
 		if ($orderBy == 'a.expected_send_date') { 
@@ -588,6 +605,7 @@ class VjeecDcmModelRequests extends JModelList {
 		
 		$query->order($orderBy.' '.$db->escape($this->getState('list.direction', 'desc')));
 		//echo nl2br(str_replace('#__','vpt_',$query));
+		$query->setLimit(10);
 		return $query;
 	}
 	
@@ -811,7 +829,7 @@ class VjeecDcmModelRequests extends JModelList {
 	    $result = $db->insertObject('#__vjeecdcm_request_observer', $reqObs);
   	}
   	
-  	public function addSchoolAsRequestObserver($reqId, $schoolId) { 
+  	public function addSchoolAsRequestObserver($reqId, $schoolId = null) { 
 	    $db = JFactory::getDBO();
 	    $query = $db->getQuery(true);
 	    if ($schoolId == null) {

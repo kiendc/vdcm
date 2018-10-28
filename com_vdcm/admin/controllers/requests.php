@@ -234,13 +234,74 @@ class VjeecdcmControllerRequests extends JControllerAdmin
 		$this->buildCoverPage('jalsa');
 	}
 	
+	public function newCoverPage() { 
+		JSession::checkToken() or die(JText::_('JINVALID_TOKEN'));
+		$cid = JRequest::getVar('cid', array(), '', 'array');
+		if (!is_array($cid) || count($cid) < 1) {
+			JError::raiseWarning(500, JText::_($this->text_prefix . '_NO_ITEM_SELECTED'));
+		}
+		
+		$model = $this->getModel('requests');
+		$list = $model->getRequestsInfo($cid);
+		
+		if (count($list)) { 
+			$ret = $this->validateRequests($list, 'jalsa');
+			
+			if ($ret['status'] != 'success') { 
+				JFactory::getApplication()->enqueueMessage($ret['msg'], 'error');
+				return $this->setRedirect('index.php?option=com_vjeecdcm&view=requests');
+			}
+			
+			$shipmentDate = null;
+			if ($ret['date'] != '') { 
+				$shipmentDate = $ret['date'];
+			}
+			
+			
+			$view = $this->getView("coverpage", "html");
+			
+			$fileName = 'Cover page JaLSA '. date('d.m', strtotime($shipmentDate)).'.pdf';	
+			
+			$view->assignRef('fileName', $fileName);
+			$view->assignRef('list',$list);
+			$view->date = $shipmentDate;
+			
+			//$this->setRedirect('index.php?option=com_vjeecdcm&view=coverpage&layout=jalsa');
+			$view->setLayout("jalsa");
+			$view->display();
+			//$app = JFactory::getApplication();
+			//$app->close();	
+				
+		} else { 
+			JFactory::getApplication()->enqueueMessage('Không tìm thấy yêu cầu.', 'error');
+			$this->setRedirect('index.php?option=com_vjeecdcm&view=requests');
+		}
+		
+	}
+	
+	public function JSONCoverPage() 
+	{ 
+		$cid = JRequest::getVar('cid', array(), '', 'array');
+		/*
+		$cid_chunks = array_chunk($cid, 500);
+		$model = $this->getModel('requests');
+		$list = array();
+		for ($i = 0; $i < count($cid_chunks); $i++)
+		{
+			$list[] = $model->getRequestsInfo($cid_chunks[$i]);
+		} 
+		echo json_encode($list);
+		*/
+		echo json_encode($cid);
+		jexit();
+	}
 	/**
   	 * 
   	 * Validate requests with same expected_send_date or target school conditions
   	 * @param array $requests
   	 * @param string $type is school or jalsa
   	 */
-  	public function validateRequests($requests, $type = 'school') { 
+  	public function validateRequests(&$requests, $type = 'school') { 
   		$schools = array();
   		$date = array();
   		$ret = array('status' => 'success', 'msg' => '');
@@ -253,7 +314,7 @@ class VjeecdcmControllerRequests extends JControllerAdmin
   			if (!in_array($item->expected_send_date, $date)) { 
   				$date[] = $item->expected_send_date;
   			}
-  			
+  			$item->holder_name = strtoupper(VjeecHelper::remove_vietnamese_accents($item->holder_name));
   		}
   		
   		if (count($date) > 1) {

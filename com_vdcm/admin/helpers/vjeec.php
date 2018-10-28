@@ -222,7 +222,7 @@ class VjeecHelper
 			'SELECT DISTINCT a.expected_send_date' .
 			' FROM '. $db->quoteName('#__vjeecdcm_diploma_request') .'  AS a '.
 			' WHERE a.expected_send_date IS NOT NULL'.
-			' ORDER BY expected_send_date ASC'
+			' ORDER BY expected_send_date DESC'
 		);
 		$ret = $db->loadObjectList();
 

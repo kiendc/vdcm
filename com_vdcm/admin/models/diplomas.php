@@ -202,7 +202,7 @@ class VjeecDcmModelDiplomas extends JModelList {
   		try { 
   			$db->setQuery($query);
   			$ret = $db->loadObject();
-  			if ($ret->id) { 
+  			if (isset($ret->id)) { 
   				$major_id =  $ret->id;
   			} else { 
   				$major_id = $this->insertMajor($name);

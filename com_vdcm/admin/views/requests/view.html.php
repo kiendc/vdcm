@@ -79,7 +79,6 @@ class VjeecDcmViewRequests extends JViewLegacy
 			JToolBarHelper::divider();
 			JToolBarHelper::divider();
 			JToolBarHelper::divider();
-			JToolBarHelper::divider();
 			JToolBarHelper::custom('requests.forgery', 'unpublish', 'unpublish', 'Forgery', true);
 			JToolBarHelper::custom('requests.removeForgery', 'remove', 'remove', 'Not forgery', true);
 		}

@@ -16,4 +16,8 @@ class VjeecDcmController extends JControllerLegacy
         parent::display();
         return $this;
     }
+    
+    
 }
+
+?>
