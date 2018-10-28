@@ -4,11 +4,21 @@ function onTabActivated(e)
     //console.log(e.relatedTarget);
 }
 
+function onCreateReqButtonClick(e)
+{
+    console.log('Create button click');
+}
 function onReqCreationDlgOpen()
 {
     getDiplomaDegree();
     getSchool();
+    $('#req-detail-holder-info-4').datepicker()
+    .on('show.bs.modal', function(event) {
+        // prevent datepicker from firing bootstrap modal "show.bs.modal"
+        event.stopPropagation();
+        });
     //bs_input_file();
+    $('#create-req-btn').on('click', onCreateReqButtonClick);
     console.log("Dialog open");
 }
 

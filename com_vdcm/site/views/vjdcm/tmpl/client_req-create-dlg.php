@@ -90,13 +90,13 @@
                             <?php echo JText::_( 'VJEECDCM_REQUEST_ADD_FORM_FS_CONTACT_TELEPHONE' ); ?>
                         </label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="req-detail-holder-info-2" placeholder="So CMT"/>
+                            <input type="text" class="form-control" id="req-detail-holder-info-2" placeholder="So dien thoai"/>
                         </div>
                         <label for="req-detail-holder-info-3" class="col-sm-2 col-form-label">
                             <?php echo JText::_( 'VJEECDCM_REQUEST_ADD_FORM_FS_CONTACT_ADDRESS' ); ?>
                         </label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="req-detail-holder-info-3" placeholder="So CMT"/>
+                            <input type="text" class="form-control" id="req-detail-holder-info-3" placeholder="Dia chi"/>
                         </div>
                     </div>
                     
