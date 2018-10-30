@@ -46,14 +46,14 @@ class VjeecDcmModelCoverpage extends JModelList
                          'a.id AS request_id',
                          'b.holder_name',
                          'c.degree_code',
-			 'd.name AS school_name'
+												 'd.name AS school_name'
                          ))
-          ->from('#__vjeecdcm_diploma_request AS a')
-          ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
-          ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
-	  ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
-          ->where('a.expected_send_date IS NOT NULL AND expected_send_date = "'. $expectedDate .'"')
-          ->order('school_name');
+			->from('#__vjeecdcm_diploma_request AS a')
+			->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
+			->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
+			->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
+			->where('a.expected_send_date IS NOT NULL AND expected_send_date = "'. $expectedDate .'"')
+			->order('school_name');
     try 
     {
       //dump($query->__toString(), 'ModelCoopRequest::getRequests, query');
@@ -62,12 +62,11 @@ class VjeecDcmModelCoverpage extends JModelList
       $queryRes = $db->loadObjectList();
       //dump($result, 'ModelCoopRequest::getRequests, result');
       // Load detail of each request
-      $cpItems = array();
       foreach ($queryRes as $rq)
       {
-        $cpItems[] = array("code" =>  $this->createCode($rq), "holder_name" => $rq->holder_name, "school_name" => $rq->school_name);
+        $rq->code =  $this->createCode($rq);
       }
-      return $cpItems;
+      return $queryRes;
     } 
     catch (Exception $e) 
     {
