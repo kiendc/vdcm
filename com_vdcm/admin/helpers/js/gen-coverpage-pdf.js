@@ -78,11 +78,22 @@ function genPDFFromJson(reqs, expectedDate)
 {
 	rows = [];
 	var ind = 1;
+	var rowsBySchool = new Map();
 	reqs.forEach(function(req)
 	{
 		var student = remove_vietnamese_accents(req.holder_name).toUpperCase();
 		rows.push([ind, req.code, student, req.school_name.toUpperCase()]);
 		ind++;
+		let schoolId = req.school_id;
+		if (rowsBySchool.has(schoolId))
+		{
+			rowsBySchool[schoolId].rows.push([req.code, student]);
+		}
+		else
+		{
+			rowsBySchool.set(schoolId, {rows: [[req.code, student]]});
+		}
+			
 	});
 	var title = "VJEEC to JALSA on " + expectedDate + ". Total " + rows.length + " shipment";
 	genPDF(title, rows, "jalsa-coverpage");
