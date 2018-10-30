@@ -9,6 +9,11 @@ class VjeecdcmControllerCoverpage extends JControllerAdmin
 		parent::__construct($config);
 	}
 	
+	public function createCode($rq)
+  {
+  	$date = date_create($rq->created_date);
+    return $rq->degree_code . $date->format('Ymd') . $rq->request_id;
+  }
 	
 	public function JSONCoverPage() 
 	{ 
@@ -37,8 +42,13 @@ class VjeecdcmControllerCoverpage extends JControllerAdmin
 	{
 		$expectedDate = JRequest::getVar('expectedDate', date('Y-m-d'));
 		$model = $this->getModel('coverpage');
-        	$reqs = $model->getRequests($expectedDate);
-		echo json_encode($reqs);
+    $reqs = $model->getRequests($expectedDate);
+		$jsonItems = array();
+    foreach ($rq as $reqs)
+    {
+    	$jsonItems[] = array("code" =>  $this->createCode($rq), "holder_name" => $rq->holder_name, "school_name" => $rq->school_name);
+    }
+		echo json_encode($jsonItems);
 		jexit();
 	}
 }
