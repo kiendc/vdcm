@@ -53,8 +53,8 @@ class VjeecDcmModelCoverpage extends JModelList
       ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
       ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
       ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
-      ->where('a.expected_send_date IS NOT NULL', 'AND')
-      ->where('a.expected_send_date = "'. $expectedDate .'"', 'AND')
+      ->where('a.expected_send_date IS NOT NULL AND a.expected_send_date = "'. $expectedDate .'"')
+      //->where('a.expected_send_date = "'. $expectedDate .'"', 'AND')
       //->where('b.forgery == 0')
       ->order('school_name');
       try
