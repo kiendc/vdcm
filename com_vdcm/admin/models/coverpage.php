@@ -46,6 +46,7 @@ class VjeecDcmModelCoverpage extends JModelList
                            'a.id AS request_id',
                            'b.holder_name',
                            'c.degree_code',
+                           'c.degree_name',
                            'd.name AS school_name',
                            'd.id AS school_id'));
       

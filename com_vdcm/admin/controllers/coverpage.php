@@ -44,12 +44,15 @@ class VjeecdcmControllerCoverpage extends JControllerAdmin
 		$model = $this->getModel('coverpage');
         $reqs = $model->getRequests($expectedDate);
         $cpItems = array();
-        foreach ($reqs as $rq)
+        if ($reqs)
         {
-            $cpItems[] = array("code" =>  $this->createCode($rq),
-                               "holder_name" => $rq->holder_name,
-                               "school_name" => $rq->school_name,
-                               "school_id" => $rq->school_id);
+            foreach ($reqs as $rq)
+            {
+                $cpItems[] = array("code" =>  $this->createCode($rq),
+                                   "holder_name" => $rq->holder_name,
+                                   "school_name" => $rq->school_name,
+                                   "school_id" => $rq->school_id);
+            }
         }
 		echo json_encode($cpItems);
 		jexit();
