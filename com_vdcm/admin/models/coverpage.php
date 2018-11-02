@@ -31,7 +31,7 @@ class VjeecDcmModelCoverpage extends JModelList
       return $dates;
     } 
     catch (Exception $e) 
-      {
+    {
       //JFactory::getApplication()->enqueueMessage('There is something wrong in collecting the requests of this user' , 'error');
       JLog::add('Error in get requests for cover page', JLog::ERROR);
       return NULL;
@@ -40,35 +40,41 @@ class VjeecDcmModelCoverpage extends JModelList
   
   public function getRequests($expectedDate)
   {
-      $db = JFactory::getDBO();
-      $query = $db->getQuery(true);
-      $query->select(array('a.created_date',
-                           'a.id AS request_id',
-                           'b.holder_name',
-                           'c.degree_code',
-                           'c.degree_name',
-                           'd.name AS school_name',
-                           'd.id AS school_id'))
-      ->from('#__vjeecdcm_diploma_request AS a')
-      ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
-      ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
-      ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
-      ->where('a.expected_send_date IS NOT NULL AND a.expected_send_date = "'. $expectedDate .'"')
-      //->where('a.expected_send_date = "'. $expectedDate .'"', 'AND')
-      //->where('b.forgery == 0')
-      ->order('school_name');
-      try
+    $db = JFactory::getDBO();
+    $query = $db->getQuery(true);
+    $query->select(array('a.created_date',
+                         'a.id AS request_id',
+                         'b.holder_name',
+                         'c.degree_code',
+			 'd.name AS school_name'
+                         ))
+          ->from('#__vjeecdcm_diploma_request AS a')
+          ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
+          ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
+	  ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
+          ->where('a.expected_send_date IS NOT NULL AND expected_send_date = "'. $expectedDate .'"')
+          ->order('school_name');
+    try 
+    {
+      //dump($query->__toString(), 'ModelCoopRequest::getRequests, query');
+      JLog::add('ModelCoverpage::getRequest, query: ' . $query->__toString(), JLog::ERROR);
+      $db->setQuery($query);
+      $queryRes = $db->loadObjectList();
+      //dump($result, 'ModelCoopRequest::getRequests, result');
+      // Load detail of each request
+      $cpItems = array();
+      foreach ($queryRes as $rq)
       {
-          JLog::add('ModelCoverpage::getRequest, query: ' . $query->__toString(), JLog::ERROR);
-          $db->setQuery($query);
-          $queryRes = $db->loadObjectList();
-          return $queryRes;
+        $cpItems[] = array("code" =>  $this->createCode($rq), "holder_name" => $rq->holder_name, "school_name" => $rq->school_name);
       }
-      catch (Exception $e)
-      {
-          JLog::add('Error in get requests for cover page', JLog::ERROR);
-          return NULL;
-      }
+      return $cpItems;
+    } 
+    catch (Exception $e) 
+    {
+      //JFactory::getApplication()->enqueueMessage('There is something wrong in collecting the requests of this user' , 'error');
+      JLog::add('Error in get requests for cover page', JLog::ERROR);
+      return NULL;
+    }
           
   }
   
