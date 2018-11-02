@@ -48,18 +48,15 @@ class VjeecDcmModelCoverpage extends JModelList
                            'c.degree_code',
                            'c.degree_name',
                            'd.name AS school_name',
-                           'd.id AS school_id'));
-      
-      $query->from('#__vjeecdcm_diploma_request AS a');
-      $query->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)');
-      $query->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)');
-      $query->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)');
-      
-      $query->where('a.expected_send_date IS NOT NULL', 'AND');
-      $query->where('a.expected_send_date = "'. $expectedDate .'"', 'AND');
-      $query->where('b.forgery == 0');
-      
-      $query->order('school_name');
+                           'd.id AS school_id'))
+      ->from('#__vjeecdcm_diploma_request AS a')
+      ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
+      ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
+      ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
+      ->where('a.expected_send_date IS NOT NULL', 'AND')
+      ->where('a.expected_send_date = "'. $expectedDate .'"', 'AND')
+      //->where('b.forgery == 0')
+      ->order('school_name');
       try
       {
           JLog::add('ModelCoverpage::getRequest, query: ' . $query->__toString(), JLog::ERROR);
