@@ -46,7 +46,8 @@ class VjeecDcmModelCoverpage extends JModelList
                            'a.id AS request_id',
                            'b.holder_name',
                            'c.degree_code',
-                           'd.name AS school_name'));
+                           'd.name AS school_name',
+                           'd.id AS school_id'));
       
       $query->from('#__vjeecdcm_diploma_request AS a');
       $query->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)');
@@ -58,27 +59,18 @@ class VjeecDcmModelCoverpage extends JModelList
       $query->where('b.forgery == 0');
       
       $query->order('school_name');
-    try 
-    {
-      //dump($query->__toString(), 'ModelCoopRequest::getRequests, query');
-      JLog::add('ModelCoverpage::getRequest, query: ' . $query->__toString(), JLog::ERROR);
-      $db->setQuery($query);
-      $queryRes = $db->loadObjectList();
-      //dump($result, 'ModelCoopRequest::getRequests, result');
-      // Load detail of each request
-      $cpItems = array();
-      foreach ($queryRes as $rq)
+      try
       {
-        $cpItems[] = array("code" =>  $this->createCode($rq), "holder_name" => $rq->holder_name, "school_name" => $rq->school_name);
+          JLog::add('ModelCoverpage::getRequest, query: ' . $query->__toString(), JLog::ERROR);
+          $db->setQuery($query);
+          $queryRes = $db->loadObjectList();
+          return $queryRes;
       }
-      return $cpItems;
-    } 
-    catch (Exception $e) 
-    {
-      //JFactory::getApplication()->enqueueMessage('There is something wrong in collecting the requests of this user' , 'error');
-      JLog::add('Error in get requests for cover page', JLog::ERROR);
-      return NULL;
-    }
+      catch (Exception $e)
+      {
+          JLog::add('Error in get requests for cover page', JLog::ERROR);
+          return NULL;
+      }
           
   }
   
