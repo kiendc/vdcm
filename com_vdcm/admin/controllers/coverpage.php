@@ -23,7 +23,8 @@ class VjeecdcmControllerCoverpage extends JControllerAdmin
 	{
 		$model = $this->getModel('coverpage');
 		$today = JRequest::getVar('today', date('Y-m-d'));
-        	$dates = $model->getExpectedDates($today);
+		$lastMonth = date('Y-m-d', strtotime('-1 month'));
+        	$dates = $model->getExpectedDates($lastMonth);
         	$id = 0;
         	$datesChoices = array();
         	foreach ($dates as $d) {
@@ -38,7 +39,13 @@ class VjeecdcmControllerCoverpage extends JControllerAdmin
 		$expectedDate = JRequest::getVar('expectedDate', date('Y-m-d'));
 		$model = $this->getModel('coverpage');
         	$reqs = $model->getRequests($expectedDate);
-		echo json_encode($reqs);
+		
+      		$cpItems = array();
+      		foreach ($reqs as $rq)
+      		{
+      		  $cpItems[] = array("code" =>  $rq->code, "holder_name" => $rq->holder_name, "school_name" => $rq->school_name);
+      		}
+		echo json_encode($cpItems);
 		jexit();
 	}
 }

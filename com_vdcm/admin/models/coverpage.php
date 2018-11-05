@@ -52,7 +52,7 @@ class VjeecDcmModelCoverpage extends JModelList
           ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
           ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
 	  ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
-          ->where('a.expected_send_date IS NOT NULL AND expected_send_date = "'. $expectedDate .'"')
+          ->where('a.expected_send_date IS NOT NULL AND expected_send_date = "'. $expectedDate .'" AND b.forgery = 0')
           ->order('school_name');
     try 
     {
@@ -62,12 +62,13 @@ class VjeecDcmModelCoverpage extends JModelList
       $queryRes = $db->loadObjectList();
       //dump($result, 'ModelCoopRequest::getRequests, result');
       // Load detail of each request
-      $cpItems = array();
+      //$cpItems = array();
       foreach ($queryRes as $rq)
       {
-        $cpItems[] = array("code" =>  $this->createCode($rq), "holder_name" => $rq->holder_name, "school_name" => $rq->school_name);
+        $rq->code = $this->createCode($rq);
       }
-      return $cpItems;
+      //return $cpItems;
+      return $queryRes;
     } 
     catch (Exception $e) 
     {

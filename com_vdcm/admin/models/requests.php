@@ -605,7 +605,7 @@ class VjeecDcmModelRequests extends JModelList {
 		
 		$query->order($orderBy.' '.$db->escape($this->getState('list.direction', 'desc')));
 		//echo nl2br(str_replace('#__','vpt_',$query));
-		$query->setLimit(10);
+		//$query->setLimit(10);
 		return $query;
 	}
 	
