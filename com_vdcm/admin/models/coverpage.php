@@ -62,7 +62,6 @@ class VjeecDcmModelCoverpage extends JModelList
           ->where('a.expected_send_date IS NOT NULL AND '. 
 		  'expected_send_date = "'. $expectedDate .'" AND '. 
 		  'b.forgery = 0 AND '. 
-		  //'a.request_type = 0')
 		  'a.request_type = '. $requestType)
           ->order('school_name');
     try 
@@ -73,12 +72,10 @@ class VjeecDcmModelCoverpage extends JModelList
       $queryRes = $db->loadObjectList();
       //dump($result, 'ModelCoopRequest::getRequests, result');
       // Load detail of each request
-      //$cpItems = array();
       foreach ($queryRes as $rq)
       {
         $rq->code = $this->createCode($rq);
       }
-      //return $cpItems;
       return $queryRes;
     } 
     catch (Exception $e) 

@@ -9,6 +9,11 @@ class VjeecdcmControllerCoverpage extends JControllerAdmin
 		parent::__construct($config);
 	}
 	
+	public function createCode($rq)
+  {
+  	$date = date_create($rq->created_date);
+    return $rq->degree_code . $date->format('Ymd') . $rq->request_id;
+  }
 	
 	public function JSONCoverPage() 
 	{ 

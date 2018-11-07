@@ -124,6 +124,7 @@ function genPDFFromJson(reqs, expectedDate, requestType)
 	{
 		let fileName = value.name + '-' + expectedDate;
 		genSchoolPDF(value, fileName);
+			
 	});
 }
 
