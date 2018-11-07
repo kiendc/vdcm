@@ -52,6 +52,14 @@ function remove_vietnamese_accents(str)
 	return str_replace(accents_arr,no_accents_arr,str);
 }
 
+function sleep(ms)
+{
+	var start = new Date().getTime();
+	for (var i = 0; i < 1e7; i++)
+		if ((new Date().getTime() - start) > ms)
+			break;	
+}
+
 function genByjsPDF()
 {
 	/*
@@ -74,22 +82,78 @@ function genByjsPDF()
 	
 }
 
-function genPDFFromJson(reqs, expectedDate)
+function genPDFFromJson(reqs, expectedDate, requestType)
 {
+	if (reqs.length < 1)
+	{
+		alert('No request is sent to date ' + expectedDate);
+		return;
+	}
 	rows = [];
 	var ind = 1;
+	var rowsBySch = new Map();
 	reqs.forEach(function(req)
 	{
+		
 		var student = remove_vietnamese_accents(req.holder_name).toUpperCase();
-		rows.push([ind, req.code, student, req.school_name.toUpperCase()]);
-		ind++;
+		if (requestType == 0)
+		{
+
+			rows.push([ind, req.code, student, req.school_name.toUpperCase()]);
+			ind++;
+		}
+		if (!rowsBySch.has(req.school_id))
+		{
+			rowsBySch.set(req.school_id, {name: req.school_name,
+						      address: req.school_address,
+						      zipcode: req.school_zipcode,
+						      phone: req.school_phone,
+						      contact: req.school_contact,
+						      rows: []});	
+		}
+		let schDesc = rowsBySch.get(req.school_id);
+		schDesc.rows.push([schDesc.rows.length + 1, student, req.code, req.degree_name]);
 	});
-	var title = "VJEEC to JALSA on " + expectedDate + ". Total " + rows.length + " shipment";
-	genPDF(title, rows, "jalsa-coverpage");
-	
+	if (rows.length > 0)
+	{
+		var title = "VJEEC to JALSA on " + expectedDate + ". Total " + rows.length + " shipment";
+		genJALSAPDF(title, rows, "jalsa-coverpage-" + expectedDate);
+	}
+	console.log(rowsBySch);
+	rowsBySch.forEach(function(value, key, map)
+	{
+		let fileName = value.name + '-' + expectedDate;
+		genSchoolPDF(value, fileName);
+	});
 }
 
-function genPDF(title, rows, fileName)
+function genSchoolPDF(schDesc, fileName)
+{
+	let columns = ['No.', 'Student Name', 'Reference No.', 'Qualification'];
+	var doc = new jsPDF('p', 'mm');
+
+  	doc.setFontSize(13);
+    	doc.text(schDesc.name, 15, 20);
+	doc.text(schDesc.address, 15, 30);     	
+	doc.text(schDesc.zipcode, 15, 40);
+	doc.text(schDesc.phone, 15, 50);
+	doc.text(schDesc.contact, 15, 60);
+	doc.setFontSize(11);
+  	doc.autoTable(columns, schDesc.rows,{
+  		startY: 70, 
+  		margin: {horizontal: 20,
+  			vertical: 20},
+        	bodyStyles: {valign: 'top'},
+        	styles: {overflow: 'linebreak', columnWidth: 'wrap'},
+        	columnStyles: {3: {columnWidth: 'auto'}},
+        	theme: 'grid'
+        });
+  	doc.save(fileName + ".pdf");
+	console.log('Save to ' + fileName);
+	//sleep(2000);
+}
+
+function genJALSAPDF(title, rows, fileName)
 {
 	var columns = ["Order", "Code", "Student", "School"];
   	var doc = new jsPDF('p', 'mm');
@@ -180,10 +244,12 @@ $(document).ready(function() {
 	$('#gen-coverpage-by-date-btn').click(function()
 	{
 		var expectedDate = $('#coverpage-date-select2').select2('data').text;
+		var requestType = 0;
 		console.log(expectedDate);
 		$.ajax({
 			url: "index.php?option=com_vjeecdcm&task=coverpage.JSONCoverPageByDate",
-			data: {expectedDate: expectedDate},
+			data: {expectedDate: expectedDate,
+			       requestType: requestType},
 			dataType: "json",
 			type: 'POST',
 			error: function (jqXHR, textStatus, errorThrown)
@@ -193,7 +259,31 @@ $(document).ready(function() {
 			success: function (data, textStatus, jqXHR) 
 			{
 				console.log(data);
-				genPDFFromJson(data, expectedDate);
+				genPDFFromJson(data, expectedDate, requestType);
+			
+			}
+		});
+	});
+	
+	$('#gen-schl-coverpage-by-date-btn').click(function()
+	{
+		var expectedDate = $('#coverpage-date-select2').select2('data').text;
+		var requestType = 1;
+		console.log(expectedDate);
+		$.ajax({
+			url: "index.php?option=com_vjeecdcm&task=coverpage.JSONCoverPageByDate",
+			data: {expectedDate: expectedDate,
+			       requestType: requestType},
+			dataType: "json",
+			type: 'POST',
+			error: function (jqXHR, textStatus, errorThrown)
+			{
+		    		alert(errorThrown);
+			},
+			success: function (data, textStatus, jqXHR) 
+			{
+				console.log(data);
+				genPDFFromJson(data, expectedDate, requestType);
 			
 			}
 		});

@@ -37,13 +37,23 @@ class VjeecdcmControllerCoverpage extends JControllerAdmin
 	public function JSONCoverPageByDate()
 	{
 		$expectedDate = JRequest::getVar('expectedDate', date('Y-m-d'));
+		$requestType = JRequest::getVar('requestType', 0);
 		$model = $this->getModel('coverpage');
-        	$reqs = $model->getRequests($expectedDate);
+        	$reqs = $model->getRequests($expectedDate, $requestType);
 		
       		$cpItems = array();
       		foreach ($reqs as $rq)
       		{
-      		  $cpItems[] = array("code" =>  $rq->code, "holder_name" => $rq->holder_name, "school_name" => $rq->school_name);
+      		  $cpItems[] = array("code" =>  $rq->code, 
+				     "holder_name" => $rq->holder_name, 
+				     "school_name" => $rq->school_name,
+				     "school_id" => $rq->school_id,
+				     "school_zipcode" => $rq->school_zipcode,
+				     "school_phone" => $rq->school_phone,
+				     "school_contact" => $rq->school_contact,
+			             "request_type" => $rq->request_type,
+				     "school_address" => $rq->school_address,
+				     "degree_name" => $rq->degree_name);
       		}
 		echo json_encode($cpItems);
 		jexit();

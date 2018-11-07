@@ -54,9 +54,10 @@ $component_path = $this->baseurl. '/components/com_vjeecdcm';
 </script>
 
 <button id="req-view-create-btn" style="margin:10px;height:30px;color:#054993;font-weight:bold;"><?php echo JText::_('VJEECDCM_RV_BT_CREATE_REQUESTS');?></button>
-<button id="req-coverpage-btn" style="margin:10px;height:30px;color:#054993;font-weight:bold;">New cover page</button>
+<!--<button id="req-coverpage-btn" style="margin:10px;height:30px;color:#054993;font-weight:bold;">New cover page</button>-->
 <span id="coverpage-date-select2">Select expected date</span>
-<button id="gen-coverpage-by-date-btn" style="margin:10px;height:30px;color:#054993;font-weight:bold;">Generate pdf</button>
+<button id="gen-coverpage-by-date-btn" style="margin:10px;height:30px;color:#054993;font-weight:bold;"> Cover pages for normal reqs</button>
+<button id="gen-schl-coverpage-by-date-btn" style="margin:10px;height:30px;color:#054993;font-weight:bold;"> Cover pages for direct reqs</button>
 
 <form action="<?php echo JRoute::_('index.php?option=com_vjeecdcm&view=requests');?>" method="post" name="adminForm" id="adminForm">
 <?php if (!empty( $this->sidebar)) : ?>

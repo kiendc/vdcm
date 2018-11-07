@@ -38,21 +38,32 @@ class VjeecDcmModelCoverpage extends JModelList
     }
   }
   
-  public function getRequests($expectedDate)
+  public function getRequests($expectedDate, $requestType)
   {
     $db = JFactory::getDBO();
     $query = $db->getQuery(true);
     $query->select(array('a.created_date',
                          'a.id AS request_id',
+			 'a.request_type',
                          'b.holder_name',
                          'c.degree_code',
-			 'd.name AS school_name'
+			 'c.cover_name AS degree_name',
+			 'd.id AS school_id',
+			 'd.name AS school_name',
+			 'd.address AS school_address',
+			 'd.zipcode AS school_zipcode',
+			 'd.phone AS school_phone',
+			 'd.contact_name AS school_contact'
                          ))
           ->from('#__vjeecdcm_diploma_request AS a')
           ->join('INNER', '#__vjeecdcm_diploma AS b ON (a.diploma_id = b.id)')
           ->join('INNER', '#__vjeecdcm_diploma_degree AS c ON (b.degree_id = c.id)')
 	  ->join('INNER', '#__vjeecdcm_school AS d ON (a.target_school_id = d.id)')
-          ->where('a.expected_send_date IS NOT NULL AND expected_send_date = "'. $expectedDate .'" AND b.forgery = 0')
+          ->where('a.expected_send_date IS NOT NULL AND '. 
+		  'expected_send_date = "'. $expectedDate .'" AND '. 
+		  'b.forgery = 0 AND '. 
+		  //'a.request_type = 0')
+		  'a.request_type = '. $requestType)
           ->order('school_name');
     try 
     {
