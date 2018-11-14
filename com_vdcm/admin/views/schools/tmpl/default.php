@@ -79,11 +79,11 @@ $component_path = $this->baseurl. '/components/com_vjeecdcm';
 				<th class="nowrap" width="10%">
 					<?php echo JHtml::_('grid.sort', JText::_( 'VJEECDCM_SV_CT_LAST_VISIT_DATE' ), 'u.lastvisitDate', $listDirn, $listOrder); ?>
 				</th>
-				<!--
+				
 				<th class="nowrap" width="10%">
 					<?php echo JHtml::_('grid.sort', JText::_( 'VJEECDCM_SV_CT_NB_REQUESTS' ), 'nb_requests', $listDirn, $listOrder); ?>
 				</th>
-				-->
+			
 			</tr>
 		</thead>
 		<tfoot>
@@ -131,11 +131,11 @@ $component_path = $this->baseurl. '/components/com_vjeecdcm';
 				<td class="center">
 					<?php echo date('d/m/Y: H:i:s' , strtotime($item->lastvisitDate)); ?>
 				</td>
-				<!--
+				
 				<td class="center">
 					<?php echo $item->nb_requests; ?>
 				</td>
-				-->
+				
 			</tr>
 		<?php endforeach; ?>
 		</tbody>
