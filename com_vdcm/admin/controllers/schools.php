@@ -61,6 +61,14 @@ class VjeecdcmControllerSchools extends JControllerAdmin
 		}
 		$this->setRedirect('index.php?option=com_vjeecdcm&view=schools');
 	}
+
+	//public function add() 
+	//{
+	//
+	//	JSession::checkToken() or jexit(JText::_('JINVALID_TOKEN'));
+	//	JFactory::getApplication()->enqueueMessage('Them mot truong thành công trường với id: '. implode(',', $success), 'message');
+	//	$this->setRedirect('index.php?option=com_vjeecdcm&view=school');
+	//}
 }
 
 ?>

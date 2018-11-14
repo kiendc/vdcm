@@ -15,7 +15,7 @@ class VjeecDcmModelSchools extends JModelList {
 				'username', 'u.username',
 				'email', 'u.email',
 				'lastvisitDate', 'u.lastvisitDate',
-				'nb_requests', 'nb_requests',
+				//'nb_requests', 'nb_requests',
 			);
 		}
 
@@ -101,7 +101,14 @@ class VjeecDcmModelSchools extends JModelList {
 		$query	= $db->getQuery(true);
 		
 		$query->select($this->getState( 'list.select',
-			'a.id AS school_id, a.name, a.represent_user_id, a.phone, a.fax, u.username, u.email, u.lastvisitDate, a.school_user_id, COUNT(c.request_id) AS nb_requests'
+						'a.id AS school_id, 
+						 a.name, 
+						 a.represent_user_id, 
+						 a.phone, 
+						 a.fax, u.username, 
+						 u.email, u.lastvisitDate, 
+						 a.school_user_id' 
+						 //COUNT(c.request_id) AS nb_requests'
 		));
 		$query->from($db->quoteName('#__vjeecdcm_school'). ' AS a');
 		
@@ -109,7 +116,7 @@ class VjeecDcmModelSchools extends JModelList {
 		$query->join('INNER', $db->quoteName('#__users').' AS u ON a.school_user_id = u.id');
 		
 		//$query->select('COUNT(c.request_id) AS nb_requests');
-		$query->join('LEFT', $db->quoteName('#__vjeecdcm_request_observer').' AS c ON a.school_user_id = c.observer_id');
+		//$query->join('LEFT', $db->quoteName('#__vjeecdcm_request_observer').' AS c ON a.school_user_id = c.observer_id');
 		
 		if ($this->getState('filter.search') !== '') { 
 			// Escape the search token.
@@ -147,7 +154,7 @@ class VjeecDcmModelSchools extends JModelList {
 			$query->where('a.represent_user_id = ' . VjeecHelper::getJalsaUserId());
 		}
 		
-		$query->group('a.id, a.name, a.phone, a.fax, u.email, u.lastvisitDate, a.school_user_id');
+		//$query->group('a.id, a.name, a.phone, a.fax, u.email, u.lastvisitDate, a.school_user_id');
 		$query->order($db->escape($this->getState('list.ordering', 'a.name')).' '.$db->escape($this->getState('list.direction', 'asc')));
 		//echo nl2br(str_replace('#__','imz_',$query));
 		return $query;

@@ -4,7 +4,8 @@ defined('_JEXEC') or die('Restricted access');
 class VjeecDcmViewSchool extends JViewLegacy
 {
 	protected $item;
-	
+	protected $form;	
+
 	function display($tpl = null) 
   	{ 	
   		$this->form = $this->get('Form');
@@ -16,15 +17,15 @@ class VjeecDcmViewSchool extends JViewLegacy
 			return false;
 		}
 		$this->addToolbar();
-    	parent::display($tpl);
+    		parent::display($tpl);
 	}
 	
 	
 	protected function addToolbar() {
 		JFactory::getApplication()->input->set('hidemainmenu', true);
 		$user      = JFactory::getUser();
-		$canDo     = JHelperContent::getActions('com_vjeecdcm');
-		$isNew = $this->item->id ? false : true;
+		//$canDo     = JHelperContent::getActions('com_vjeecdcm');
+		//$isNew = $this->item->id ? false : true;
 		JToolbarHelper::title(JText::_($isNew ? 'Tạo mới trường' : 'Cập nhật trường'), 'school ' . 'school-group');
 		JToolBarHelper::apply('school.apply');
 		JToolBarHelper::save('school.save');
