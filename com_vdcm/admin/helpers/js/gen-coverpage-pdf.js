@@ -120,18 +120,25 @@ function genPDFFromJson(reqs, expectedDate, requestType)
 		genJALSAPDF(title, rows, "jalsa-coverpage-" + expectedDate);
 	}
 	console.log(rowsBySch);
+	var doc = new jsPDF('p', 'mm');
+	let fileName = 'schools-list-' + expectedDate;
 	rowsBySch.forEach(function(value, key, map)
 	{
-		let fileName = value.name + '-' + expectedDate;
-		genSchoolPDF(value, fileName);
+		//let fileName = value.name + '-' + expectedDate;
+		//genSchoolPDF(value, fileName);
+		genSchoolPDF(value, doc);
+		doc.addPage();
 			
 	});
+  	doc.save(fileName + ".pdf");
+	console.log('Save to ' + fileName);
 }
 
-function genSchoolPDF(schDesc, fileName)
+//function genSchoolPDF(schDesc, fileName)
+function genSchoolPDF(schDesc, doc)
 {
 	let columns = ['No.', 'Student Name', 'Reference No.', 'Qualification'];
-	var doc = new jsPDF('p', 'mm');
+	//var doc = new jsPDF('p', 'mm');
 
   	doc.setFontSize(13);
     	doc.text(schDesc.name, 15, 20);
@@ -149,8 +156,8 @@ function genSchoolPDF(schDesc, fileName)
         	columnStyles: {3: {columnWidth: 'auto'}},
         	theme: 'grid'
         });
-  	doc.save(fileName + ".pdf");
-	console.log('Save to ' + fileName);
+  	//doc.save(fileName + ".pdf");
+	//console.log('Save to ' + fileName);
 	//sleep(2000);
 }
 
